@@ -42,12 +42,14 @@ namespace WindowsFormsApplication1
             {
                 string query = "CREATE TABLE Lotto ( " +
                     "rIndex int," +
+                    "Date varchar(20)," +
                     "Part1 int," +
                     "Part2 int," +
                     "Part3 int," +
                     "Part4 int," +
                     "Part5 int," +
-                    "Part6 int);";
+                    "Part6 int," +
+                    "Bonus int);";
                 SQLiteCommand cmd = new SQLiteCommand(query, _connection);
                 cmd.ExecuteNonQuery();
             }
@@ -83,14 +85,16 @@ namespace WindowsFormsApplication1
                 while (r.Read())
                 {
                     String s1 = r["rIndex"].ToString();
-                    String s2 = r["Part1"].ToString();
-                    String s3 = r["Part2"].ToString();
-                    String s4 = r["Part3"].ToString();
-                    String s5 = r["Part4"].ToString();
-                    String s6 = r["Part5"].ToString();
-                    String s7 = r["Part6"].ToString();
-
-                    //Console.WriteLine(s1, s2, s3, s4, s5, s6, s7 );
+                    String s2 = r["Date"].ToString();
+                    String s3 = r["Part1"].ToString();
+                    String s4 = r["Part2"].ToString();
+                    String s5 = r["Part3"].ToString();
+                    String s6 = r["Part4"].ToString();
+                    String s7 = r["Part5"].ToString();
+                    String s8 = r["Part6"].ToString();
+                    String s9 = r["Bonus"].ToString();
+                    
+                    //Console.WriteLine(s1, s2, s3, s4, s5, s6, s7, s8, s9 );
                     ListViewItem item = new ListViewItem();
                     item.Text = "";
                     item.SubItems.Add(s1);
@@ -100,6 +104,8 @@ namespace WindowsFormsApplication1
                     item.SubItems.Add(s5);
                     item.SubItems.Add(s6);
                     item.SubItems.Add(s7);
+                    item.SubItems.Add(s8);
+                    item.SubItems.Add(s9);
                     lstView.Items.Add(item);
                 }
             }
@@ -127,13 +133,15 @@ namespace WindowsFormsApplication1
             using (reader)
             {
                 string rIndex;
+                string Date;
                 string Part1;
                 string Part2;
                 string Part3;
                 string Part4;
                 string Part5;
                 string Part6;
-
+                string Bonus;
+                                
                 string line = reader.ReadLine();
                 while (line != null)
                 {
@@ -142,42 +150,54 @@ namespace WindowsFormsApplication1
 
                     try
                     {
+                        Date = NullVal(value[1], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
+                    }
+                    catch { Date = ""; }
 
-                        Part1 = NullVal(value[1], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
+                    try
+                    {
+
+                        Part1 = NullVal(value[2], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
                     }
                     catch { Part1 = ""; }
 
                     try
                     {
-                        Part2 = NullVal(value[2], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
+                        Part2 = NullVal(value[3], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
                     }
                     catch { Part2 = ""; }
 
                     try
                     {
-                        Part3 = NullVal(value[3], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
+                        Part3 = NullVal(value[4], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
                     }
                     catch { Part3 = ""; }
 
                     try
                     {
-                        Part4 = NullVal(value[4], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
+                        Part4 = NullVal(value[5], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
                     }
                     catch { Part4 = ""; }
 
                     try
                     {
-                        Part5 = NullVal(value[5], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
+                        Part5 = NullVal(value[6], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
                     }
                     catch { Part5 = ""; }
 
                     try
                     {
-                        Part6 = NullVal(value[6], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
+                        Part6 = NullVal(value[7], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
                     }
                     catch { Part6 = ""; }
 
-                    string query = string.Format("INSERT INTO Lotto (rIndex, Part1, Part2, Part3, Part4, Part5, Part6) VALUES ({0},{1},{2},{3},{4},{5},{6});", rIndex, Part1, Part2, Part3, Part4, Part5, Part6);
+                    try
+                    {
+                        Bonus = NullVal(value[8], "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
+                    }
+                    catch { Bonus = ""; }
+                                       
+                    string query = string.Format("INSERT INTO Lotto (rIndex, Date, Part1, Part2, Part3, Part4, Part5, Part6, Bonus) VALUES ({0},{1},{2},{3},{4},{5},{6},{7},{8});", rIndex, QStr(Date), Part1, Part2, Part3, Part4, Part5, Part6, Bonus);
                     insertLotto(query);
 
                     line = reader.ReadLine();
@@ -198,13 +218,15 @@ namespace WindowsFormsApplication1
             lstView.OwnerDraw = true;
 
             lstView.Columns.Add("", 25, HorizontalAlignment.Left);
-            lstView.Columns.Add("회차", 50, HorizontalAlignment.Left);
-            lstView.Columns.Add("1 당첨번호", 100, HorizontalAlignment.Left);
-            lstView.Columns.Add("2 당첨번호", 100, HorizontalAlignment.Left);
-            lstView.Columns.Add("3 당첨번호", 100, HorizontalAlignment.Left);
-            lstView.Columns.Add("4 당첨번호", 100, HorizontalAlignment.Left);
-            lstView.Columns.Add("5 당첨번호", 100, HorizontalAlignment.Left);
-            lstView.Columns.Add("6 당첨번호", 100, HorizontalAlignment.Left);
+            lstView.Columns.Add("회차", 70, HorizontalAlignment.Center);
+            lstView.Columns.Add("추첨일", 100, HorizontalAlignment.Center);
+            lstView.Columns.Add("1 당첨번호", 70, HorizontalAlignment.Center);
+            lstView.Columns.Add("2 당첨번호", 70, HorizontalAlignment.Center);
+            lstView.Columns.Add("3 당첨번호", 70, HorizontalAlignment.Center);
+            lstView.Columns.Add("4 당첨번호", 70, HorizontalAlignment.Center);
+            lstView.Columns.Add("5 당첨번호", 70, HorizontalAlignment.Center);
+            lstView.Columns.Add("6 당첨번호", 70, HorizontalAlignment.Center);
+            lstView.Columns.Add("보너스", 70, HorizontalAlignment.Center);
 
             createdatabaseDaeseong();
 
@@ -263,30 +285,36 @@ namespace WindowsFormsApplication1
             if (lstView.SelectedItems.Count > 0)
             {
                 string num = lstView.SelectedItems[0].SubItems[1].Text.ToString();
-                string part1 = lstView.SelectedItems[0].SubItems[2].Text.ToString();
-                string part2 = lstView.SelectedItems[0].SubItems[3].Text.ToString();
-                string part3 = lstView.SelectedItems[0].SubItems[4].Text.ToString();
-                string part4 = lstView.SelectedItems[0].SubItems[5].Text.ToString();
-                string part5 = lstView.SelectedItems[0].SubItems[6].Text.ToString();
-                string part6 = lstView.SelectedItems[0].SubItems[7].Text.ToString();
+                string Date = lstView.SelectedItems[0].SubItems[2].Text.ToString(); 
+                string part1 = lstView.SelectedItems[0].SubItems[3].Text.ToString();
+                string part2 = lstView.SelectedItems[0].SubItems[4].Text.ToString();
+                string part3 = lstView.SelectedItems[0].SubItems[5].Text.ToString();
+                string part4 = lstView.SelectedItems[0].SubItems[6].Text.ToString();
+                string part5 = lstView.SelectedItems[0].SubItems[7].Text.ToString();
+                string part6 = lstView.SelectedItems[0].SubItems[8].Text.ToString();
+                string Bonus = lstView.SelectedItems[0].SubItems[9].Text.ToString();
 
                 txtrNum.Text = num;
+                txtDate.Text = Date;
                 txtPart1.Text = part1;
                 txtPart2.Text = part2;
                 txtPart3.Text = part3;
                 txtPart4.Text = part4;
                 txtPart5.Text = part5;
                 txtPart6.Text = part6;
+                txtBonus.Text = Bonus;
             }
             else
             {
                 txtrNum.Text = "";
+                txtDate.Text = "";
                 txtPart1.Text = "";
                 txtPart2.Text = "";
                 txtPart3.Text = "";
                 txtPart4.Text = "";
                 txtPart5.Text = "";
                 txtPart6.Text = "";
+                txtBonus.Text = "";
             }
         }
 
@@ -313,21 +341,24 @@ namespace WindowsFormsApplication1
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if( txtrNum.Text == "")  return;
+            if( txtDate.Text == "")  return;
             if( txtPart1.Text == "") return;
             if( txtPart2.Text == "") return;
             if( txtPart3.Text == "") return;
             if( txtPart4.Text == "") return;
             if( txtPart5.Text == "") return;
             if( txtPart6.Text == "") return;
-
-
+            if( txtBonus.Text == "") return;
+            
             string rIndex;
+            string Date;
             string Part1;
             string Part2;
             string Part3;
             string Part4;
             string Part5;
             string Part6;
+            string Bonus;
 
             try
             {
@@ -335,6 +366,12 @@ namespace WindowsFormsApplication1
                 rIndex = NullVal(txtrNum.Text, "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
             }
             catch { rIndex = ""; }
+
+            try
+            {
+                Date = NullVal(txtDate.Text, "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
+            }
+            catch { Date = ""; }
 
             try
             {
@@ -371,8 +408,14 @@ namespace WindowsFormsApplication1
                 Part6 = NullVal(txtPart6.Text, "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
             }
             catch { Part6 = ""; }
-                   
-            string query = string.Format("INSERT INTO Lotto (rIndex, Part1, Part2, Part3, Part4, Part5, Part6) VALUES ({0},{1},{2},{3},{4},{5},{6});", rIndex, Part1, Part2, Part3, Part4, Part5, Part6);
+
+            try
+            {
+                Bonus = NullVal(txtBonus.Text, "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
+            }
+            catch { Bonus = ""; }
+
+            string query = string.Format("INSERT INTO Lotto (rIndex, Date, Part1, Part2, Part3, Part4, Part5, Part6, Bonus) VALUES ({0},{1},{2},{3},{4},{5},{6},{7},{8});", rIndex, QStr(Date), Part1, Part2, Part3, Part4, Part5, Part6, Bonus);
             insertLotto(query);
 
             txtrNum.Text = "";

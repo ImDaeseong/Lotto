@@ -47,6 +47,10 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtDate = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtBonus = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lstView
@@ -219,11 +223,47 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(166, 423);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "추첨일";
+            // 
+            // txtDate
+            // 
+            this.txtDate.Location = new System.Drawing.Point(213, 420);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(82, 21);
+            this.txtDate.TabIndex = 21;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(314, 423);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "보너스";
+            // 
+            // txtBonus
+            // 
+            this.txtBonus.Location = new System.Drawing.Point(361, 420);
+            this.txtBonus.Name = "txtBonus";
+            this.txtBonus.Size = new System.Drawing.Size(82, 21);
+            this.txtBonus.TabIndex = 23;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 572);
+            this.Controls.Add(this.txtBonus);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtDate);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -271,6 +311,10 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtDate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtBonus;
     }
 }
 

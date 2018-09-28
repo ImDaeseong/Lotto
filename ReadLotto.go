@@ -45,6 +45,11 @@ func getLotto() {
 				continue
 			}
 
+			if rIndex == 1 {
+				//제목 row
+				continue
+			}
+
 			cell1, _ := row.Cells[0].String()
 			cell2, _ := row.Cells[1].String()
 			cell3, _ := row.Cells[2].String()
@@ -52,8 +57,10 @@ func getLotto() {
 			cell5, _ := row.Cells[4].String()
 			cell6, _ := row.Cells[5].String()
 			cell7, _ := row.Cells[6].String()
+			cell8, _ := row.Cells[7].String()
+			cell9, _ := row.Cells[8].String()
 
-			sLine := fmt.Sprintf("%s|%s|%s|%s|%s|%s|%s", cell1, cell2, cell3, cell4, cell5, cell6, cell7)
+			sLine := fmt.Sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s", cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9)
 			//fmt.Println(sLine)
 
 			WriteLottoString(sSavePath, sLine+"\n")
