@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -71,6 +72,87 @@ public class DbHandler {
                 db.close();
             }
         }
+    }
+
+    public boolean isExistData(int rIndex){
+        boolean bFindData = false;
+
+        if(dbHelper == null){
+            return bFindData;
+        }
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        if(db == null){
+            return bFindData;
+        }
+
+        String query = "SELECT rIndex FROM Lotto where rIndex = " + rIndex;
+        Cursor cursor = db.rawQuery(query, null);
+
+        try {
+
+            if (cursor.moveToFirst()) {
+                bFindData = true;
+            }
+
+        } catch (SQLiteException e){
+        } catch (Exception e){
+        } finally {
+
+            if(cursor != null){
+                cursor.close();
+                cursor = null;
+            }
+
+            if(db != null){
+                db.close();
+            }
+        }
+        return bFindData;
+    }
+
+    public String[] getData(int rIndex) {
+
+        String [] sArray =  new String[9];
+
+        if(dbHelper == null){
+            return null;
+        }
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        if(db == null){
+            return null;
+        }
+
+        String query = "SELECT * FROM Lotto where rIndex = " + rIndex;
+        Cursor cursor = db.rawQuery(query, null);
+
+        try{
+
+            while(cursor.moveToNext()) {
+                sArray[0] = String.valueOf(cursor.getInt(0));
+                sArray[1] = cursor.getString(1);
+                sArray[2] = String.valueOf(cursor.getInt(2));
+                sArray[3] = String.valueOf(cursor.getInt(3));
+                sArray[4] = String.valueOf(cursor.getInt(4));
+                sArray[5] = String.valueOf(cursor.getInt(5));
+                sArray[6] = String.valueOf(cursor.getInt(6));
+                sArray[7] = String.valueOf(cursor.getInt(7));
+                sArray[8] = String.valueOf(cursor.getInt(8));
+            }
+
+        } catch (SQLiteException e){
+        } catch (Exception e){
+        } finally {
+
+            if(cursor != null){
+                cursor.close();
+                cursor = null;
+            }
+
+            if(db != null){
+                db.close();
+            }
+        }
+        return sArray;
     }
 
     public void deleteLotto(int rIndex){
@@ -326,5 +408,4 @@ public class DbHandler {
             return ((Integer)o1.getCount()).compareTo((Integer)o2.getCount());
         }
     }
-
 }

@@ -1,5 +1,6 @@
 package com.im.daeseong.lottoplayer.Util;
 
+import android.content.Context;
 import android.graphics.Color;
 
 public class Lottoutil {
@@ -18,5 +19,23 @@ public class Lottoutil {
         } else {
             return Color.WHITE;
         }
+    }
+
+    public static int toInt(String sInput, int defValue) {
+        try {
+            return Integer.parseInt(sInput);
+        } catch (Exception e) {
+        }
+        return defValue;
+    }
+
+    public static int dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5F);
+    }
+
+    public static int px2dip(Context context, float dpValue) {
+        float scale = context.getResources().getDisplayMetrics().density;
+        return (int)(dpValue / scale + 0.5F);
     }
 }
