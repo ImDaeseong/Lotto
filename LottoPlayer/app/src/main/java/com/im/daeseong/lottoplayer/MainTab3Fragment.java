@@ -54,31 +54,58 @@ public class MainTab3Fragment extends Fragment {
     private void addLottoInfo(){
 
         String sedDesc = edDesc.getText().toString();
-        if( TextUtils.isEmpty( sedDesc )) return;
+        if( TextUtils.isEmpty( sedDesc )){
+            LottoApplication.getInstance().Toast(mContext, "당첨회차 정보를 입력해주세요.", false);
+            return;
+        }
 
         String sedDate = edDate.getText().toString();
-        if( TextUtils.isEmpty( sedDate )) return;
+        if( TextUtils.isEmpty( sedDate )){
+            LottoApplication.getInstance().Toast(mContext, "당첨일자 정보를 입력해주세요.", false);
+            return;
+        }
 
         String set1 = et1.getText().toString();
-        if( TextUtils.isEmpty( set1 )) return;
+        if( TextUtils.isEmpty( set1 )){
+            LottoApplication.getInstance().Toast(mContext, "당첨번호 1번째 번호를 입력해주세요.", false);
+            return;
+        }
 
         String set2 = et2.getText().toString();
-        if( TextUtils.isEmpty( set2 )) return;
+        if( TextUtils.isEmpty( set2 )){
+            LottoApplication.getInstance().Toast(mContext, "당첨번호 2번째 번호를 입력해주세요.", false);
+            return;
+        }
 
         String set3 = et3.getText().toString();
-        if( TextUtils.isEmpty( set3 )) return;
+        if( TextUtils.isEmpty( set3 )){
+            LottoApplication.getInstance().Toast(mContext, "당첨번호 3번째 번호를 입력해주세요.", false);
+            return;
+        }
 
         String set4 = et4.getText().toString();
-        if( TextUtils.isEmpty( set4 )) return;
+        if( TextUtils.isEmpty( set4 )){
+            LottoApplication.getInstance().Toast(mContext, "당첨번호 4번째 번호를 입력해주세요.", false);
+            return;
+        }
 
         String set5 = et5.getText().toString();
-        if( TextUtils.isEmpty( set5 )) return;
+        if( TextUtils.isEmpty( set5 )){
+            LottoApplication.getInstance().Toast(mContext, "당첨번호 5번째 번호를 입력해주세요.", false);
+            return;
+        }
 
         String set6 = et6.getText().toString();
-        if( TextUtils.isEmpty( set6 )) return;
+        if( TextUtils.isEmpty( set6 )){
+            LottoApplication.getInstance().Toast(mContext, "당첨번호 6번째 번호를 입력해주세요.", false);
+            return;
+        }
 
         String set7 = et7.getText().toString();
-        if( TextUtils.isEmpty( set7 )) return;
+        if( TextUtils.isEmpty( set7 )){
+            LottoApplication.getInstance().Toast(mContext, "보너스 번호를 입력해주세요.", false);
+            return;
+        }
 
         int rIndex = Lottoutil.toInt(sedDesc, 0);
         String Date = sedDate;
@@ -100,6 +127,9 @@ public class MainTab3Fragment extends Fragment {
         et5.setText("");
         et6.setText("");
         et7.setText("");
+
+        ((MainActivity)getActivity()).reloadLotto();
+        LottoApplication.getInstance().Toast(mContext, "복권번호 등록이 완료되었습니다.", false);
     }
 
     @Override

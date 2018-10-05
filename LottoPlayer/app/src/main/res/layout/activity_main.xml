@@ -7,7 +7,6 @@
     android:id="@+id/main1"
     android:background="#FFFFFF">
 
-    <include
-        layout="@layout/main_viewpagelayout" />
+    <include layout="@layout/main_viewpagelayout" />
 
 </android.support.constraint.ConstraintLayout>

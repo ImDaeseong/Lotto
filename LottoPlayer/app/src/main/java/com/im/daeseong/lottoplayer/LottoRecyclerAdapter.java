@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.im.daeseong.lottoplayer.Database.Lotto;
+import com.im.daeseong.lottoplayer.Util.Lottoutil;
 
 import java.util.List;
 
@@ -41,27 +42,27 @@ public class LottoRecyclerAdapter extends RecyclerView.Adapter<LottoRecyclerAdap
 
         String stv1 = String.format("%s", lottoList.get(position).getPart1());
         holder.tv1.setText(stv1);
-        //holder.tv1.setTextColor(Lottoutil.getLottoColor(lottoList.get(position).getPart1()));
+        holder.tv1.setTextColor(Lottoutil.getLottoColor(lottoList.get(position).getPart1()));
 
         String stv2 = String.format("%s", lottoList.get(position).getPart2());
         holder.tv2.setText(stv2);
-        //holder.tv2.setTextColor(Lottoutil.getLottoColor(lottoList.get(position).getPart2()));
+        holder.tv2.setTextColor(Lottoutil.getLottoColor(lottoList.get(position).getPart2()));
 
         String stv3 = String.format("%s", lottoList.get(position).getPart3());
         holder.tv3.setText(stv3);
-        //holder.tv3.setTextColor(Lottoutil.getLottoColor(lottoList.get(position).getPart3()));
+        holder.tv3.setTextColor(Lottoutil.getLottoColor(lottoList.get(position).getPart3()));
 
         String stv4 = String.format("%s", lottoList.get(position).getPart4());
         holder.tv4.setText(stv4);
-        //holder.tv4.setTextColor(Lottoutil.getLottoColor(lottoList.get(position).getPart4()));
+        holder.tv4.setTextColor(Lottoutil.getLottoColor(lottoList.get(position).getPart4()));
 
         String stv5 = String.format("%s", lottoList.get(position).getPart5());
         holder.tv5.setText(stv5);
-        //holder.tv5.setTextColor(Lottoutil.getLottoColor(lottoList.get(position).getPart5()));
+        holder.tv5.setTextColor(Lottoutil.getLottoColor(lottoList.get(position).getPart5()));
 
         String stv6 = String.format("%s", lottoList.get(position).getPart6());
         holder.tv6.setText(stv6);
-        //holder.tv6.setTextColor(Lottoutil.getLottoColor(lottoList.get(position).getPart6()));
+        holder.tv6.setTextColor(Lottoutil.getLottoColor(lottoList.get(position).getPart6()));
     }
 
     @Override

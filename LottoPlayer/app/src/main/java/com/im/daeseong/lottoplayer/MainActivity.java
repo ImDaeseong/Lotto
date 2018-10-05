@@ -215,6 +215,14 @@ public class MainActivity extends AppCompatActivity {
         return mLottoTop_list;
     }
 
+    public void reloadLotto(){
+        try {
+            mLotto_list.clear();
+            mLotto_list = dbHandler.getLotto();
+        }catch (Exception e){
+        }
+    }
+
     public void addLotto(int rIndex, String Date, int Part1, int Part2, int Part3, int Part4, int Part5, int Part6, int Bonus){
 
         try {
