@@ -37,7 +37,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDesc">
 
-            <TextView
+            <com.im.daeseong.lottoplayer.Util.RoundView
                 android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
                 app:layout_constraintRight_toLeftOf="@+id/tv2"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-            <TextView
+            <com.im.daeseong.lottoplayer.Util.RoundView
                 android:id="@+id/tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 app:layout_constraintRight_toLeftOf="@+id/tv3"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-            <TextView
+            <com.im.daeseong.lottoplayer.Util.RoundView
                 android:id="@+id/tv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                 app:layout_constraintRight_toLeftOf="@+id/tv4"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-            <TextView
+            <com.im.daeseong.lottoplayer.Util.RoundView
                 android:id="@+id/tv4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                 app:layout_constraintRight_toLeftOf="@+id/tv5"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-            <TextView
+            <com.im.daeseong.lottoplayer.Util.RoundView
                 android:id="@+id/tv5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
                 app:layout_constraintRight_toLeftOf="@+id/tv6"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-            <TextView
+            <com.im.daeseong.lottoplayer.Util.RoundView
                 android:id="@+id/tv6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

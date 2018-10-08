@@ -15,6 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.support.v7.widget.Toolbar;
 import android.support.v4.view.ViewPager;
+import android.view.inputmethod.InputMethodManager;
 
 import com.im.daeseong.lottoplayer.Database.DbHandler;
 import com.im.daeseong.lottoplayer.Database.Lotto;
@@ -205,6 +206,33 @@ public class MainActivity extends AppCompatActivity {
         lottoAdapter.addFragment(new MainTab3Fragment(), "등록");
         lottoAdapter.addFragment(new MainTab4Fragment(), "나눔로또");
         viewPager.setAdapter(lottoAdapter);
+
+        viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
+    }
+
+    ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener(){
+        @Override
+        public void onPageSelected(int position) {
+            hideKeyboard();
+        }
+
+        @Override
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int arg0) {
+        }
+    };
+
+    public void hideKeyboard() {
+        try {
+            if (getCurrentFocus() != null) {
+                InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }
+        }catch (Exception e){
+        }
     }
 
     public List<Lotto> getLotto() {
