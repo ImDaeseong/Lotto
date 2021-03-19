@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Lotto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvW-ED-t29">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem title="로또분석기" id="bzi-3m-gLq">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SDT-Dp-Tkz" userLabel="tabmenuview">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OSq-HX-vzd"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v6h-RJ-zhf">
+                                    <size key="itemSize" width="127" height="51"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tabCell" id="eQE-2L-HeL" customClass="tabCell" customModule="Lotto">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eT7-fe-RtR">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Hw-YU-mIr" userLabel="namelabel">
+                                                    <rect key="frame" x="43" y="14.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="systemGray2Color"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9e9-aa-6RQ" userLabel="lineview">
+                                                    <rect key="frame" x="0.0" y="45" width="128" height="5"/>
+                                                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="5" id="QT0-aE-5qY"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="9e9-aa-6RQ" secondAttribute="trailing" id="1E3-vn-ph5"/>
+                                                <constraint firstItem="9e9-aa-6RQ" firstAttribute="leading" secondItem="eT7-fe-RtR" secondAttribute="leading" id="1wa-k4-DRy"/>
+                                                <constraint firstItem="8Hw-YU-mIr" firstAttribute="centerX" secondItem="eT7-fe-RtR" secondAttribute="centerX" id="5lM-Uy-Ejk"/>
+                                                <constraint firstAttribute="bottom" secondItem="9e9-aa-6RQ" secondAttribute="bottom" id="IGL-nG-ahu"/>
+                                                <constraint firstItem="8Hw-YU-mIr" firstAttribute="centerY" secondItem="eT7-fe-RtR" secondAttribute="centerY" id="IHp-tA-UjN"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="128" height="50"/>
+                                        <connections>
+                                            <outlet property="lineview" destination="9e9-aa-6RQ" id="vG9-hT-H0M"/>
+                                            <outlet property="namelabel" destination="8Hw-YU-mIr" id="e6e-lw-eaa"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dK-i2-KsI" userLabel="contentview">
+                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1dK-i2-KsI" secondAttribute="trailing" id="0PZ-8s-dhv"/>
+                            <constraint firstItem="RvW-ED-t29" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7sx-Q6-4AQ"/>
+                            <constraint firstItem="RvW-ED-t29" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AnU-yb-yGg"/>
+                            <constraint firstItem="1dK-i2-KsI" firstAttribute="top" secondItem="SDT-Dp-Tkz" secondAttribute="bottom" id="Czc-pa-FYO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RvW-ED-t29" secondAttribute="trailing" id="DI9-qi-Z5w"/>
+                            <constraint firstItem="1dK-i2-KsI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KiB-k8-JAt"/>
+                            <constraint firstItem="SDT-Dp-Tkz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VIg-dn-X6g"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1dK-i2-KsI" secondAttribute="bottom" id="ceZ-eo-EDS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SDT-Dp-Tkz" secondAttribute="trailing" id="uZT-6S-jIU"/>
+                            <constraint firstItem="SDT-Dp-Tkz" firstAttribute="top" secondItem="RvW-ED-t29" secondAttribute="bottom" id="xXK-mN-68K"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentview" destination="1dK-i2-KsI" id="ChD-IC-GuR"/>
+                        <outlet property="tabmenuview" destination="SDT-Dp-Tkz" id="f4d-Ug-8Xx"/>
+                        <outlet property="toolbar" destination="RvW-ED-t29" id="iwV-xb-l6H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-55.072463768115945" y="93.75"/>
+        </scene>
+        <!--Tab 1view-->
+        <scene sceneID="mBe-36-6sm">
+            <objects>
+                <viewController storyboardIdentifier="tab1view" id="gbm-iP-Uxe" customClass="tab1view" customModule="Lotto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a4X-7V-nmw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EMI-Qv-NON">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fa3-vy-7Ur"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EMI-Qv-NON" firstAttribute="top" secondItem="fa3-vy-7Ur" secondAttribute="top" id="0IU-l4-vgT"/>
+                            <constraint firstItem="fa3-vy-7Ur" firstAttribute="trailing" secondItem="EMI-Qv-NON" secondAttribute="trailing" id="RDm-eH-jwC"/>
+                            <constraint firstItem="EMI-Qv-NON" firstAttribute="leading" secondItem="fa3-vy-7Ur" secondAttribute="leading" id="i59-3d-IHH"/>
+                            <constraint firstItem="fa3-vy-7Ur" firstAttribute="bottom" secondItem="EMI-Qv-NON" secondAttribute="bottom" id="xeF-Vh-fUU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableview1" destination="EMI-Qv-NON" id="j8c-5f-IjI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DZ9-HK-u4S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="575" y="94"/>
+        </scene>
+        <!--Tab 2view-->
+        <scene sceneID="0KW-n9-kvv">
+            <objects>
+                <viewController storyboardIdentifier="tab2view" id="vBW-Jw-K1X" customClass="tab2view" customModule="Lotto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6vv-zY-eGB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MUx-qe-aCv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="item2Cell" id="hnj-et-sfA" customClass="item2Cell" customModule="Lotto" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="62.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hnj-et-sfA" id="EC9-9Z-PbY">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="62.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ggn-cj-awW" customClass="roundbackground" customModule="Lotto">
+                                                    <rect key="frame" x="10" y="5" width="394" height="52.5"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9IH-8F-GWh" userLabel="numview" customClass="roundview" customModule="Lotto" customModuleProvider="target">
+                                                            <rect key="frame" x="10" y="5" width="42" height="42.5"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="42" id="i5A-yN-koc"/>
+                                                                <constraint firstAttribute="width" constant="42" id="joe-aE-SE0"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="txtColor">
+                                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="txtSize">
+                                                                    <real key="value" value="14"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="txtText" value="번호"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8V-5t-dH3" userLabel="numtext">
+                                                            <rect key="frame" x="62" y="0.0" width="322" height="52.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="9IH-8F-GWh" firstAttribute="leading" secondItem="Ggn-cj-awW" secondAttribute="leading" constant="10" id="3lv-M4-5jM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="p8V-5t-dH3" secondAttribute="trailing" constant="10" id="TJ6-Sw-efe"/>
+                                                        <constraint firstItem="p8V-5t-dH3" firstAttribute="top" secondItem="Ggn-cj-awW" secondAttribute="top" id="UEJ-8y-XO9"/>
+                                                        <constraint firstItem="9IH-8F-GWh" firstAttribute="top" secondItem="Ggn-cj-awW" secondAttribute="top" constant="5" id="fVj-bt-YJY"/>
+                                                        <constraint firstItem="p8V-5t-dH3" firstAttribute="leading" secondItem="9IH-8F-GWh" secondAttribute="trailing" constant="10" id="haM-SN-9mr"/>
+                                                        <constraint firstAttribute="bottom" secondItem="9IH-8F-GWh" secondAttribute="bottom" constant="5" id="qhH-71-NNn"/>
+                                                        <constraint firstAttribute="bottom" secondItem="p8V-5t-dH3" secondAttribute="bottom" id="seW-vr-vDL"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Ggn-cj-awW" secondAttribute="trailing" constant="10" id="2xH-89-7LO"/>
+                                                <constraint firstItem="Ggn-cj-awW" firstAttribute="top" secondItem="EC9-9Z-PbY" secondAttribute="top" constant="5" id="ALk-Yu-StH"/>
+                                                <constraint firstItem="Ggn-cj-awW" firstAttribute="leading" secondItem="EC9-9Z-PbY" secondAttribute="leading" constant="10" id="Vo0-ua-yHG"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ggn-cj-awW" secondAttribute="bottom" constant="5" id="ZMa-ZY-NW2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="numtext" destination="p8V-5t-dH3" id="plk-2H-Ese"/>
+                                            <outlet property="numview" destination="9IH-8F-GWh" id="9PG-uR-A4m"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8Bf-Vy-1rC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8Bf-Vy-1rC" firstAttribute="bottom" secondItem="MUx-qe-aCv" secondAttribute="bottom" id="7Ry-DL-zVd"/>
+                            <constraint firstItem="MUx-qe-aCv" firstAttribute="leading" secondItem="8Bf-Vy-1rC" secondAttribute="leading" id="AnJ-3p-3Cs"/>
+                            <constraint firstItem="8Bf-Vy-1rC" firstAttribute="trailing" secondItem="MUx-qe-aCv" secondAttribute="trailing" id="Lui-p5-5SW"/>
+                            <constraint firstItem="MUx-qe-aCv" firstAttribute="top" secondItem="8Bf-Vy-1rC" secondAttribute="top" id="gO4-B8-nsP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableview1" destination="MUx-qe-aCv" id="lfO-Ae-Zn7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="beO-EH-bEz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1229" y="94"/>
+        </scene>
+        <!--Tab 3view-->
+        <scene sceneID="cQF-Ot-nUY">
+            <objects>
+                <viewController storyboardIdentifier="tab3view" id="KuF-dj-CAE" customClass="tab3view" customModule="Lotto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="qwN-ZG-mhI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfj-PJ-aSb">
+                                <rect key="frame" x="0.0" y="74" width="414" height="758"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MY6-4G-So0">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="758"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당첨 회차" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tra-CQ-L95" customClass="LabelEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="0.0" width="386" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="TBL-Kq-gRT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="당첨회차 정보를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7zA-gK-eG4" userLabel="textfieldTime" customClass="TextFieldEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="21" width="386" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="jKU-uJ-cBK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당첨 일자" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNW-U1-IhS" customClass="LabelEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="64" width="386" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="UAn-In-OB3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="당첨일자 정보를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="phq-4T-fQ6" userLabel="textfieldDate" customClass="TextFieldEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="85" width="386" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="cEN-0t-en8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당첨번호1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0R5-0d-mAB" customClass="LabelEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="128" width="386" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="JvO-m6-PQi"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="당첨번호 1번째 번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESy-qr-kHt" userLabel="textfieldNum1" customClass="TextFieldEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="150" width="386" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="8ZP-Au-goK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당첨번호2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vac-ly-oEX" customClass="LabelEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="193" width="386" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="smJ-wT-z6V"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="당첨번호 2번째 번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JER-wf-XdD" userLabel="textfieldNum2" customClass="TextFieldEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="214" width="386" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="Pfo-yF-M3V"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당첨번호3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brF-cp-aJh" customClass="LabelEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="257" width="386" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="o0s-ON-Jru"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="당첨번호 3번째 번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pCJ-kv-HJA" userLabel="textfieldNum3" customClass="TextFieldEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="278" width="386" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="FLB-fo-91b"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당첨번호4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVh-9X-xhS" customClass="LabelEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="321" width="386" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="daz-J2-8Ya"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="당첨번호 4번째 번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NqH-ak-vsx" userLabel="textfieldNum4" customClass="TextFieldEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="342" width="386" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="M3T-np-3hL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당첨번호5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRW-dp-Edt" customClass="LabelEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="385" width="386" height="20.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20.5" id="4v1-wq-NPX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="당첨번호 5번째 번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iDc-Ij-RzY" userLabel="textfieldNum5" customClass="TextFieldEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="405.5" width="386" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="msF-ii-ljN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당첨번호6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kug-6I-r3Q" customClass="LabelEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="448.5" width="386" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="WM7-HE-xxM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="당첨번호 6번째 번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QYh-Bt-fca" userLabel="textfieldNum6" customClass="TextFieldEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="469.5" width="386" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="UZI-sY-6JS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보너스번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amE-xq-8Hn" customClass="LabelEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="512.5" width="386" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="5RW-X8-Trz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="보너스 번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uNK-Nw-aye" userLabel="textfieldBonus" customClass="TextFieldEx" customModule="Lotto">
+                                                <rect key="frame" x="14" y="533.5" width="386" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="pqc-7r-cih"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cja-VX-23d" userLabel="btnSet" customClass="ButtonEx" customModule="Lotto">
+                                                <rect key="frame" x="157" y="585.5" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="g6C-W8-h65"/>
+                                                    <constraint firstAttribute="height" constant="30" id="qHg-2h-klK"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="btnSet_click:" destination="KuF-dj-CAE" eventType="touchUpInside" id="y1k-Pe-Gac"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="aRW-dp-Edt" secondAttribute="trailing" constant="14" id="30o-Ld-ouq"/>
+                                            <constraint firstAttribute="trailing" secondItem="ESy-qr-kHt" secondAttribute="trailing" constant="14" id="3Jf-oc-i3z"/>
+                                            <constraint firstItem="QYh-Bt-fca" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="3qY-0m-kTF"/>
+                                            <constraint firstItem="7zA-gK-eG4" firstAttribute="top" secondItem="tra-CQ-L95" secondAttribute="bottom" id="3y7-kw-M5q"/>
+                                            <constraint firstItem="RNW-U1-IhS" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="9Lj-VO-bAW"/>
+                                            <constraint firstItem="cja-VX-23d" firstAttribute="top" secondItem="uNK-Nw-aye" secondAttribute="bottom" constant="10" id="CNe-We-FtH"/>
+                                            <constraint firstItem="QYh-Bt-fca" firstAttribute="top" secondItem="kug-6I-r3Q" secondAttribute="bottom" id="Cu1-Z9-ImX"/>
+                                            <constraint firstAttribute="trailing" secondItem="vac-ly-oEX" secondAttribute="trailing" constant="14" id="DR3-fD-M1V"/>
+                                            <constraint firstAttribute="trailing" secondItem="pCJ-kv-HJA" secondAttribute="trailing" constant="14" id="E44-nn-Qel"/>
+                                            <constraint firstItem="tra-CQ-L95" firstAttribute="top" secondItem="MY6-4G-So0" secondAttribute="top" id="Ebe-bO-UnT"/>
+                                            <constraint firstAttribute="trailing" secondItem="RNW-U1-IhS" secondAttribute="trailing" constant="14" id="IsY-eb-Hkj"/>
+                                            <constraint firstItem="vac-ly-oEX" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="K3K-ET-ahe"/>
+                                            <constraint firstItem="ESy-qr-kHt" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="L5W-2a-DXi"/>
+                                            <constraint firstItem="VVh-9X-xhS" firstAttribute="top" secondItem="pCJ-kv-HJA" secondAttribute="bottom" constant="1" id="M07-Pq-IDH"/>
+                                            <constraint firstAttribute="trailing" secondItem="tra-CQ-L95" secondAttribute="trailing" constant="14" id="NBh-oS-5BO"/>
+                                            <constraint firstItem="NqH-ak-vsx" firstAttribute="top" secondItem="VVh-9X-xhS" secondAttribute="bottom" id="NCL-bs-d3Q"/>
+                                            <constraint firstItem="JER-wf-XdD" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="NaD-iJ-I8S"/>
+                                            <constraint firstItem="vac-ly-oEX" firstAttribute="top" secondItem="ESy-qr-kHt" secondAttribute="bottom" constant="1" id="SRr-PP-96y"/>
+                                            <constraint firstItem="brF-cp-aJh" firstAttribute="top" secondItem="JER-wf-XdD" secondAttribute="bottom" constant="1" id="TA7-u2-aSn"/>
+                                            <constraint firstItem="cja-VX-23d" firstAttribute="centerX" secondItem="MY6-4G-So0" secondAttribute="centerX" id="TMG-BX-LXR"/>
+                                            <constraint firstAttribute="trailing" secondItem="iDc-Ij-RzY" secondAttribute="trailing" constant="14" id="W11-2F-V5Q"/>
+                                            <constraint firstItem="JER-wf-XdD" firstAttribute="top" secondItem="vac-ly-oEX" secondAttribute="bottom" id="Wko-fh-S0P"/>
+                                            <constraint firstAttribute="trailing" secondItem="kug-6I-r3Q" secondAttribute="trailing" constant="14" id="Ykt-eN-C23"/>
+                                            <constraint firstAttribute="trailing" secondItem="QYh-Bt-fca" secondAttribute="trailing" constant="14" id="Zhd-uE-sOe"/>
+                                            <constraint firstItem="VVh-9X-xhS" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="a3A-b9-OsB"/>
+                                            <constraint firstItem="aRW-dp-Edt" firstAttribute="top" secondItem="NqH-ak-vsx" secondAttribute="bottom" constant="1" id="cKL-ih-eie"/>
+                                            <constraint firstAttribute="trailing" secondItem="phq-4T-fQ6" secondAttribute="trailing" constant="14" id="cwQ-Tr-SaS"/>
+                                            <constraint firstItem="uNK-Nw-aye" firstAttribute="top" secondItem="amE-xq-8Hn" secondAttribute="bottom" id="daz-EX-QuZ"/>
+                                            <constraint firstItem="phq-4T-fQ6" firstAttribute="top" secondItem="RNW-U1-IhS" secondAttribute="bottom" id="dhd-xg-SXi"/>
+                                            <constraint firstItem="kug-6I-r3Q" firstAttribute="top" secondItem="iDc-Ij-RzY" secondAttribute="bottom" constant="1" id="dmL-iI-LDq"/>
+                                            <constraint firstItem="brF-cp-aJh" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="fHo-bw-Ldn"/>
+                                            <constraint firstItem="uNK-Nw-aye" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="fSP-tc-J0O"/>
+                                            <constraint firstItem="iDc-Ij-RzY" firstAttribute="top" secondItem="aRW-dp-Edt" secondAttribute="bottom" id="fiA-Xt-nqd"/>
+                                            <constraint firstItem="pCJ-kv-HJA" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="gff-VK-fIW"/>
+                                            <constraint firstItem="iDc-Ij-RzY" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="iNE-oH-BHq"/>
+                                            <constraint firstItem="RNW-U1-IhS" firstAttribute="top" secondItem="7zA-gK-eG4" secondAttribute="bottom" constant="1" id="iXF-jz-AQr"/>
+                                            <constraint firstAttribute="trailing" secondItem="JER-wf-XdD" secondAttribute="trailing" constant="14" id="ihz-bg-RgA"/>
+                                            <constraint firstAttribute="trailing" secondItem="VVh-9X-xhS" secondAttribute="trailing" constant="14" id="j0u-WP-2mR"/>
+                                            <constraint firstItem="pCJ-kv-HJA" firstAttribute="top" secondItem="brF-cp-aJh" secondAttribute="bottom" id="jgy-bq-kkh"/>
+                                            <constraint firstItem="0R5-0d-mAB" firstAttribute="top" secondItem="phq-4T-fQ6" secondAttribute="bottom" constant="1" id="kJv-92-eAF"/>
+                                            <constraint firstItem="NqH-ak-vsx" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="klY-86-0Lq"/>
+                                            <constraint firstItem="tra-CQ-L95" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="l2o-RS-g9n"/>
+                                            <constraint firstItem="7zA-gK-eG4" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="m9P-f2-5No"/>
+                                            <constraint firstAttribute="bottom" secondItem="cja-VX-23d" secondAttribute="bottom" constant="30" id="mgY-e2-g3A"/>
+                                            <constraint firstAttribute="trailing" secondItem="uNK-Nw-aye" secondAttribute="trailing" constant="14" id="nAs-Zl-NsZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="7zA-gK-eG4" secondAttribute="trailing" constant="14" id="pZp-dJ-iJb"/>
+                                            <constraint firstItem="amE-xq-8Hn" firstAttribute="top" secondItem="QYh-Bt-fca" secondAttribute="bottom" constant="1" id="pgV-OX-FgR"/>
+                                            <constraint firstItem="kug-6I-r3Q" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="sc2-hx-0Yh"/>
+                                            <constraint firstAttribute="trailing" secondItem="0R5-0d-mAB" secondAttribute="trailing" constant="14" id="scl-yH-ESU"/>
+                                            <constraint firstItem="aRW-dp-Edt" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="t4F-az-C4N"/>
+                                            <constraint firstItem="ESy-qr-kHt" firstAttribute="top" secondItem="0R5-0d-mAB" secondAttribute="bottom" constant="1" id="uo8-f7-ObU"/>
+                                            <constraint firstItem="phq-4T-fQ6" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="urj-mI-pTj"/>
+                                            <constraint firstItem="0R5-0d-mAB" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="vJq-qW-cbx"/>
+                                            <constraint firstAttribute="trailing" secondItem="NqH-ak-vsx" secondAttribute="trailing" constant="14" id="vZL-AQ-pm0"/>
+                                            <constraint firstAttribute="trailing" secondItem="amE-xq-8Hn" secondAttribute="trailing" constant="14" id="wom-cH-tAC"/>
+                                            <constraint firstItem="amE-xq-8Hn" firstAttribute="leading" secondItem="MY6-4G-So0" secondAttribute="leading" constant="14" id="yxL-d8-51Q"/>
+                                            <constraint firstAttribute="trailing" secondItem="brF-cp-aJh" secondAttribute="trailing" constant="14" id="zoU-gA-dwg"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="MY6-4G-So0" secondAttribute="bottom" id="9hE-qV-6UN"/>
+                                    <constraint firstItem="MY6-4G-So0" firstAttribute="top" secondItem="zfj-PJ-aSb" secondAttribute="top" id="VZh-QB-qaC"/>
+                                    <constraint firstAttribute="trailing" secondItem="MY6-4G-So0" secondAttribute="trailing" id="aHb-DC-aZn"/>
+                                    <constraint firstItem="MY6-4G-So0" firstAttribute="width" secondItem="zfj-PJ-aSb" secondAttribute="width" id="euj-11-zEw"/>
+                                    <constraint firstItem="MY6-4G-So0" firstAttribute="height" relation="greaterThanOrEqual" secondItem="zfj-PJ-aSb" secondAttribute="height" id="eux-iF-qn2"/>
+                                    <constraint firstItem="MY6-4G-So0" firstAttribute="leading" secondItem="zfj-PJ-aSb" secondAttribute="leading" id="mQ0-tv-dR0"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JDq-T8-FbE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JDq-T8-FbE" firstAttribute="trailing" secondItem="zfj-PJ-aSb" secondAttribute="trailing" id="5GA-qV-xWe"/>
+                            <constraint firstItem="zfj-PJ-aSb" firstAttribute="leading" secondItem="JDq-T8-FbE" secondAttribute="leading" id="RSx-hg-dYU"/>
+                            <constraint firstItem="JDq-T8-FbE" firstAttribute="bottom" secondItem="zfj-PJ-aSb" secondAttribute="bottom" constant="30" id="jrH-mu-dCd"/>
+                            <constraint firstItem="zfj-PJ-aSb" firstAttribute="top" secondItem="JDq-T8-FbE" secondAttribute="top" constant="30" id="nN3-gs-lbO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollview" destination="zfj-PJ-aSb" id="QjQ-tc-jHF"/>
+                        <outlet property="textfieldBonus" destination="uNK-Nw-aye" id="gTC-Ov-ajI"/>
+                        <outlet property="textfieldDate" destination="phq-4T-fQ6" id="Bd2-Im-dQn"/>
+                        <outlet property="textfieldNum1" destination="ESy-qr-kHt" id="kQ2-Ua-hiq"/>
+                        <outlet property="textfieldNum2" destination="JER-wf-XdD" id="8Wl-yI-a8N"/>
+                        <outlet property="textfieldNum3" destination="pCJ-kv-HJA" id="MvO-wg-Zov"/>
+                        <outlet property="textfieldNum4" destination="NqH-ak-vsx" id="VKg-q4-2Xv"/>
+                        <outlet property="textfieldNum5" destination="iDc-Ij-RzY" id="Xlj-rp-Ytc"/>
+                        <outlet property="textfieldNum6" destination="QYh-Bt-fca" id="efr-j7-dra"/>
+                        <outlet property="textfieldTime" destination="7zA-gK-eG4" id="gZI-nE-1UW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D8N-xM-C33" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1869.5652173913045" y="93.75"/>
+        </scene>
+        <!--Tab 4view-->
+        <scene sceneID="vg7-NV-2AD">
+            <objects>
+                <viewController storyboardIdentifier="tab4view" id="o9e-fu-3zP" customClass="tab4view" customModule="Lotto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kDs-de-9kV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="sSE-TA-TgR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7AM-Ht-JTu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2519" y="94"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

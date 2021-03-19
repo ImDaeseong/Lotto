@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A138BB0D259B0DDF003F9359 /* item1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A138BB0B259B0DDF003F9359 /* item1Cell.swift */; };
+		A138BB0E259B0DDF003F9359 /* item1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A138BB0C259B0DDF003F9359 /* item1Cell.xib */; };
+		A138BB13259B13FB003F9359 /* line.swift in Sources */ = {isa = PBXBuildFile; fileRef = A138BB12259B13FB003F9359 /* line.swift */; };
+		A13A4B9F2599640200A2D9C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4B9E2599640200A2D9C7 /* AppDelegate.swift */; };
+		A13A4BA12599640200A2D9C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BA02599640200A2D9C7 /* SceneDelegate.swift */; };
+		A13A4BA32599640200A2D9C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BA22599640200A2D9C7 /* ViewController.swift */; };
+		A13A4BA62599640200A2D9C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13A4BA42599640200A2D9C7 /* Main.storyboard */; };
+		A13A4BA82599640300A2D9C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A13A4BA72599640300A2D9C7 /* Assets.xcassets */; };
+		A13A4BAB2599640300A2D9C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13A4BA92599640300A2D9C7 /* LaunchScreen.storyboard */; };
+		A13A4BB52599668400A2D9C7 /* LottoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BB42599668400A2D9C7 /* LottoColor.swift */; };
+		A13A4BB825996A3C00A2D9C7 /* roundbackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BB725996A3C00A2D9C7 /* roundbackground.swift */; };
+		A13A4BBB25996A5D00A2D9C7 /* roundview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BBA25996A5D00A2D9C7 /* roundview.swift */; };
+		A13A4BBE2599895400A2D9C7 /* tabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BBD2599895400A2D9C7 /* tabCell.swift */; };
+		A13A4BC125999A1100A2D9C7 /* tab1view.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BC025999A1100A2D9C7 /* tab1view.swift */; };
+		A13A4BC425999A1E00A2D9C7 /* tab2view.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BC325999A1E00A2D9C7 /* tab2view.swift */; };
+		A13A4BC725999A2A00A2D9C7 /* tab3view.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BC625999A2A00A2D9C7 /* tab3view.swift */; };
+		A13A4BCA25999A3500A2D9C7 /* tab4view.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BC925999A3500A2D9C7 /* tab4view.swift */; };
+		A13A4BCF2599A6FD00A2D9C7 /* LottoDB.db in Resources */ = {isa = PBXBuildFile; fileRef = A13A4BCE2599A6FD00A2D9C7 /* LottoDB.db */; };
+		A13A4BD22599A71C00A2D9C7 /* Lotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BD12599A71C00A2D9C7 /* Lotto.swift */; };
+		A13A4BD52599A73600A2D9C7 /* LottoTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BD42599A73600A2D9C7 /* LottoTop.swift */; };
+		A13A4BD82599A98600A2D9C7 /* DbHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BD72599A98600A2D9C7 /* DbHelper.swift */; };
+		A13A4BE52599DE9D00A2D9C7 /* item2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A4BE42599DE9D00A2D9C7 /* item2Cell.swift */; };
+		A19A7DE4259D6543001F89EA /* TextFieldEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A7DE3259D6543001F89EA /* TextFieldEx.swift */; };
+		A19A7DE7259D8FF1001F89EA /* LabelEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A7DE6259D8FF1001F89EA /* LabelEx.swift */; };
+		A19A7DEA259DB9F9001F89EA /* ButtonEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A7DE9259DB9F9001F89EA /* ButtonEx.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A138BB0B259B0DDF003F9359 /* item1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = item1Cell.swift; sourceTree = "<group>"; };
+		A138BB0C259B0DDF003F9359 /* item1Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = item1Cell.xib; sourceTree = "<group>"; };
+		A138BB12259B13FB003F9359 /* line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = line.swift; sourceTree = "<group>"; };
+		A13A4B9B2599640200A2D9C7 /* Lotto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lotto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A13A4B9E2599640200A2D9C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A13A4BA02599640200A2D9C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A13A4BA22599640200A2D9C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A13A4BA52599640200A2D9C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A13A4BA72599640300A2D9C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A13A4BAA2599640300A2D9C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A13A4BAC2599640300A2D9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A13A4BB42599668400A2D9C7 /* LottoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoColor.swift; sourceTree = "<group>"; };
+		A13A4BB725996A3C00A2D9C7 /* roundbackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundbackground.swift; sourceTree = "<group>"; };
+		A13A4BBA25996A5D00A2D9C7 /* roundview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundview.swift; sourceTree = "<group>"; };
+		A13A4BBD2599895400A2D9C7 /* tabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabCell.swift; sourceTree = "<group>"; };
+		A13A4BC025999A1100A2D9C7 /* tab1view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tab1view.swift; sourceTree = "<group>"; };
+		A13A4BC325999A1E00A2D9C7 /* tab2view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tab2view.swift; sourceTree = "<group>"; };
+		A13A4BC625999A2A00A2D9C7 /* tab3view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tab3view.swift; sourceTree = "<group>"; };
+		A13A4BC925999A3500A2D9C7 /* tab4view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tab4view.swift; sourceTree = "<group>"; };
+		A13A4BCE2599A6FD00A2D9C7 /* LottoDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = LottoDB.db; sourceTree = "<group>"; };
+		A13A4BD12599A71C00A2D9C7 /* Lotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lotto.swift; sourceTree = "<group>"; };
+		A13A4BD42599A73600A2D9C7 /* LottoTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoTop.swift; sourceTree = "<group>"; };
+		A13A4BD72599A98600A2D9C7 /* DbHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbHelper.swift; sourceTree = "<group>"; };
+		A13A4BE42599DE9D00A2D9C7 /* item2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = item2Cell.swift; sourceTree = "<group>"; };
+		A19A7DE3259D6543001F89EA /* TextFieldEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldEx.swift; sourceTree = "<group>"; };
+		A19A7DE6259D8FF1001F89EA /* LabelEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelEx.swift; sourceTree = "<group>"; };
+		A19A7DE9259DB9F9001F89EA /* ButtonEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonEx.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A13A4B982599640200A2D9C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A13A4B922599640200A2D9C7 = {
+			isa = PBXGroup;
+			children = (
+				A13A4B9D2599640200A2D9C7 /* Lotto */,
+				A13A4B9C2599640200A2D9C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A13A4B9C2599640200A2D9C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A13A4B9B2599640200A2D9C7 /* Lotto.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A13A4B9D2599640200A2D9C7 /* Lotto */ = {
+			isa = PBXGroup;
+			children = (
+				A13A4B9E2599640200A2D9C7 /* AppDelegate.swift */,
+				A13A4BA02599640200A2D9C7 /* SceneDelegate.swift */,
+				A13A4BA22599640200A2D9C7 /* ViewController.swift */,
+				A13A4BA42599640200A2D9C7 /* Main.storyboard */,
+				A13A4BA72599640300A2D9C7 /* Assets.xcassets */,
+				A13A4BA92599640300A2D9C7 /* LaunchScreen.storyboard */,
+				A13A4BAC2599640300A2D9C7 /* Info.plist */,
+				A13A4BB42599668400A2D9C7 /* LottoColor.swift */,
+				A13A4BB725996A3C00A2D9C7 /* roundbackground.swift */,
+				A13A4BBA25996A5D00A2D9C7 /* roundview.swift */,
+				A13A4BBD2599895400A2D9C7 /* tabCell.swift */,
+				A13A4BC025999A1100A2D9C7 /* tab1view.swift */,
+				A13A4BC325999A1E00A2D9C7 /* tab2view.swift */,
+				A13A4BC625999A2A00A2D9C7 /* tab3view.swift */,
+				A13A4BC925999A3500A2D9C7 /* tab4view.swift */,
+				A13A4BCE2599A6FD00A2D9C7 /* LottoDB.db */,
+				A13A4BD72599A98600A2D9C7 /* DbHelper.swift */,
+				A13A4BD12599A71C00A2D9C7 /* Lotto.swift */,
+				A13A4BD42599A73600A2D9C7 /* LottoTop.swift */,
+				A13A4BE42599DE9D00A2D9C7 /* item2Cell.swift */,
+				A138BB0B259B0DDF003F9359 /* item1Cell.swift */,
+				A138BB0C259B0DDF003F9359 /* item1Cell.xib */,
+				A138BB12259B13FB003F9359 /* line.swift */,
+				A19A7DE3259D6543001F89EA /* TextFieldEx.swift */,
+				A19A7DE6259D8FF1001F89EA /* LabelEx.swift */,
+				A19A7DE9259DB9F9001F89EA /* ButtonEx.swift */,
+			);
+			path = Lotto;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A13A4B9A2599640200A2D9C7 /* Lotto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A13A4BAF2599640300A2D9C7 /* Build configuration list for PBXNativeTarget "Lotto" */;
+			buildPhases = (
+				A13A4B972599640200A2D9C7 /* Sources */,
+				A13A4B982599640200A2D9C7 /* Frameworks */,
+				A13A4B992599640200A2D9C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lotto;
+			productName = Lotto;
+			productReference = A13A4B9B2599640200A2D9C7 /* Lotto.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A13A4B932599640200A2D9C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					A13A4B9A2599640200A2D9C7 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = A13A4B962599640200A2D9C7 /* Build configuration list for PBXProject "Lotto" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A13A4B922599640200A2D9C7;
+			productRefGroup = A13A4B9C2599640200A2D9C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A13A4B9A2599640200A2D9C7 /* Lotto */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A13A4B992599640200A2D9C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A13A4BAB2599640300A2D9C7 /* LaunchScreen.storyboard in Resources */,
+				A13A4BA82599640300A2D9C7 /* Assets.xcassets in Resources */,
+				A138BB0E259B0DDF003F9359 /* item1Cell.xib in Resources */,
+				A13A4BCF2599A6FD00A2D9C7 /* LottoDB.db in Resources */,
+				A13A4BA62599640200A2D9C7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A13A4B972599640200A2D9C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A19A7DE4259D6543001F89EA /* TextFieldEx.swift in Sources */,
+				A13A4BD22599A71C00A2D9C7 /* Lotto.swift in Sources */,
+				A13A4BB52599668400A2D9C7 /* LottoColor.swift in Sources */,
+				A13A4BB825996A3C00A2D9C7 /* roundbackground.swift in Sources */,
+				A13A4BC725999A2A00A2D9C7 /* tab3view.swift in Sources */,
+				A13A4BA32599640200A2D9C7 /* ViewController.swift in Sources */,
+				A13A4BBE2599895400A2D9C7 /* tabCell.swift in Sources */,
+				A13A4BC125999A1100A2D9C7 /* tab1view.swift in Sources */,
+				A13A4B9F2599640200A2D9C7 /* AppDelegate.swift in Sources */,
+				A13A4BE52599DE9D00A2D9C7 /* item2Cell.swift in Sources */,
+				A19A7DEA259DB9F9001F89EA /* ButtonEx.swift in Sources */,
+				A13A4BCA25999A3500A2D9C7 /* tab4view.swift in Sources */,
+				A19A7DE7259D8FF1001F89EA /* LabelEx.swift in Sources */,
+				A138BB0D259B0DDF003F9359 /* item1Cell.swift in Sources */,
+				A13A4BA12599640200A2D9C7 /* SceneDelegate.swift in Sources */,
+				A13A4BBB25996A5D00A2D9C7 /* roundview.swift in Sources */,
+				A13A4BD82599A98600A2D9C7 /* DbHelper.swift in Sources */,
+				A13A4BC425999A1E00A2D9C7 /* tab2view.swift in Sources */,
+				A13A4BD52599A73600A2D9C7 /* LottoTop.swift in Sources */,
+				A138BB13259B13FB003F9359 /* line.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A13A4BA42599640200A2D9C7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A13A4BA52599640200A2D9C7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A13A4BA92599640300A2D9C7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A13A4BAA2599640300A2D9C7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A13A4BAD2599640300A2D9C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A13A4BAE2599640300A2D9C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A13A4BB02599640300A2D9C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Lotto/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.daeseong.Lotto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A13A4BB12599640300A2D9C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Lotto/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.daeseong.Lotto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A13A4B962599640200A2D9C7 /* Build configuration list for PBXProject "Lotto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A13A4BAD2599640300A2D9C7 /* Debug */,
+				A13A4BAE2599640300A2D9C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A13A4BAF2599640300A2D9C7 /* Build configuration list for PBXNativeTarget "Lotto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A13A4BB02599640300A2D9C7 /* Debug */,
+				A13A4BB12599640300A2D9C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A13A4B932599640200A2D9C7 /* Project object */;
+}
