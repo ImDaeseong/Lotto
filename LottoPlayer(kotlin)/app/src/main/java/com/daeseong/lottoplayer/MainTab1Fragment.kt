@@ -1,7 +1,5 @@
 package com.daeseong.lottoplayer
 
-
-
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.daeseong.lottoplayer.Database.Lotto
-
 
 class MainTab1Fragment : Fragment() {
 

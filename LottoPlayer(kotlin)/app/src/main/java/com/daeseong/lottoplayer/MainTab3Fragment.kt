@@ -1,7 +1,5 @@
 package com.daeseong.lottoplayer
 
-
-
 import android.content.Context
 import android.os.Bundle
 import android.text.TextUtils
@@ -12,7 +10,6 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.daeseong.lottoplayer.Util.Lottoutil
-
 
 class MainTab3Fragment : Fragment() {
 

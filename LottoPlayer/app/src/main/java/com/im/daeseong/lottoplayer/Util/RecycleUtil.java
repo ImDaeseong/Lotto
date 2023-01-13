@@ -4,7 +4,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-
 import java.lang.ref.WeakReference;
 import java.util.List;
 
@@ -43,10 +42,12 @@ public class RecycleUtil {
     }
 
     public static void unBindDrawables(View view){
+
         if (view.getBackground() != null)
         {
             view.getBackground().setCallback(null);
         }
+
         if (view instanceof ViewGroup && !(view instanceof AdapterView))
         {
             for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++)

@@ -1,6 +1,5 @@
 package com.daeseong.lottoplayer
 
-
 import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
@@ -11,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-
 
 class LottoApplication : Application() {
 
@@ -71,8 +69,7 @@ class LottoApplication : Application() {
     }
 
     fun isNetworkAvailable(context: Context): Boolean {
-        val connectivityManager =
-            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val networkInfo = connectivityManager.activeNetworkInfo
         return networkInfo != null && networkInfo.isConnected
     }

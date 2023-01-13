@@ -1,6 +1,5 @@
 package com.daeseong.lottoplayer
 
-
 import android.content.Context
 import android.text.Html
 import android.view.LayoutInflater
@@ -11,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.daeseong.lottoplayer.Database.Lotto
 import com.daeseong.lottoplayer.Util.Lottoutil.getLottoColor
 import com.daeseong.lottoplayer.Util.RoundView
-
 
 class LottoRecyclerAdapter(var context: Context, private var lottoList: List<Lotto>) : RecyclerView.Adapter<LottoRecyclerAdapter.ViewHolder>() {
 

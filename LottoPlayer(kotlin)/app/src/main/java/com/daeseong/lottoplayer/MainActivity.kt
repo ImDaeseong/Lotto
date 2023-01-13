@@ -1,6 +1,5 @@
 package com.daeseong.lottoplayer
 
-
 import android.content.pm.ActivityInfo
 import android.graphics.Color
 import android.graphics.Point
@@ -21,7 +20,6 @@ import com.daeseong.lottoplayer.Database.LottoTop
 import com.daeseong.lottoplayer.Util.FloatingTextView
 import com.daeseong.lottoplayer.Util.Lottoutil.dip2px
 import com.daeseong.lottoplayer.Util.RecycleUtil.recursiveRecycle
-
 
 class MainActivity : AppCompatActivity() {
 

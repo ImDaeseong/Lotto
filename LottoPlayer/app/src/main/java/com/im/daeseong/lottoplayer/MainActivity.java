@@ -4,26 +4,24 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;//import android.support.constraint.ConstraintLayout;
+import com.google.android.material.tabs.TabLayout;//import android.support.design.widget.TabLayout;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.support.v7.widget.Toolbar;
-import android.support.v4.view.ViewPager;
+import androidx.appcompat.widget.Toolbar;//import android.support.v7.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;//import android.support.v4.view.ViewPager;
 import android.view.inputmethod.InputMethodManager;
-
+import androidx.appcompat.app.AppCompatActivity;//import android.support.v7.app.AppCompatActivity;
 import com.im.daeseong.lottoplayer.Database.DbHandler;
 import com.im.daeseong.lottoplayer.Database.Lotto;
 import com.im.daeseong.lottoplayer.Database.LottoTop;
 import com.im.daeseong.lottoplayer.Util.FloatingTextView;
 import com.im.daeseong.lottoplayer.Util.Lottoutil;
 import com.im.daeseong.lottoplayer.Util.RecycleUtil;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -2,11 +2,9 @@ package com.daeseong.lottoplayer.Util
 
 import android.view.View
 import android.view.ViewGroup
-
 import android.widget.AdapterView
 import android.widget.ImageView
 import java.lang.ref.WeakReference
-
 
 object RecycleUtil {
 

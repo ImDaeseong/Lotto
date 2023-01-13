@@ -4,7 +4,6 @@ import android.os.AsyncTask
 import android.os.SystemClock
 import android.webkit.WebView
 
-
 class loadUrlTask(private var wvWebView: WebView) : AsyncTask<String?, Void?, String>() {
 
     override fun onPreExecute() {

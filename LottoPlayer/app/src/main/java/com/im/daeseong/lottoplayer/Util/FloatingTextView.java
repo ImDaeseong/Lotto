@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.im.daeseong.lottoplayer.R;
 
 public class FloatingTextView {
@@ -25,6 +24,7 @@ public class FloatingTextView {
         cLClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 floatingview.setVisibility(View.GONE);
             }
         });

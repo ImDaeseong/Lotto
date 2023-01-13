@@ -1,6 +1,5 @@
 package com.daeseong.lottoplayer
 
-
 import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.Bitmap
@@ -15,7 +14,6 @@ import android.webkit.*
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import com.daeseong.lottoplayer.Util.loadUrlTask
-
 
 class MainTab4Fragment : Fragment() {
 

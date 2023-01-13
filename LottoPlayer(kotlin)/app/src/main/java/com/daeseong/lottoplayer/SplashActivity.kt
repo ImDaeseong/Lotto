@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.daeseong.lottoplayer.Database.CopyDBfile
 import com.daeseong.lottoplayer.Util.RecycleUtil.recursiveRecycle
 
-
 class SplashActivity : AppCompatActivity() {
 
     private val TAG = SplashActivity::class.java.simpleName
