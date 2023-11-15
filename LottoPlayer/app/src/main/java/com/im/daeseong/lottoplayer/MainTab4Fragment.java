@@ -49,7 +49,7 @@ public class MainTab4Fragment extends Fragment {
 
         try {
             if (LottoApplication.getInstance().isNetworkAvailable(mContext)) {
-                initWebview("http://m.nlotto.co.kr/common.do?method=main");
+                initWebview("https://m.dhlottery.co.kr/common.do?method=main");
             } else {
                 initWebview("about:blank");
             }
@@ -89,7 +89,7 @@ public class MainTab4Fragment extends Fragment {
 
         webSettings.setSupportZoom(false);//확대 축소 기능
         webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);//캐시모드를 사용하지 않고 네트워크를 통해서만 호출
-        webSettings.setAppCacheEnabled(false);//앱 내부 캐시 사용 여부 설정
+        //webSettings.setAppCacheEnabled(false);//앱 내부 캐시 사용 여부 설정
 
         webSettings.setUseWideViewPort(true);//웹뷰에 맞게 출력하기
         webSettings.setLoadWithOverviewMode(true);
@@ -155,7 +155,6 @@ public class MainTab4Fragment extends Fragment {
 
             @Override
             public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-                //super.onReceivedSslError(view, handler, error);
                 String message = "SSL Certificate error.";
                 switch (error.getPrimaryError()) {
                     case SslError.SSL_UNTRUSTED:
@@ -226,6 +225,6 @@ public class MainTab4Fragment extends Fragment {
             }
         });
 
-        new loadUrlTask(wvWebView).execute(url);//wvWebView.loadUrl(url);
+        new loadUrlTask(wvWebView).execute(url);
     }
 }

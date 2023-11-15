@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteException
 import java.util.*
 import kotlin.collections.ArrayList
 
-
 class DbHandler {
 
     private val tag = DbHandler::class.java.simpleName

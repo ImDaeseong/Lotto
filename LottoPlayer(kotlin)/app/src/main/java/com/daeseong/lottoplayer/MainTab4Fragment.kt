@@ -77,7 +77,7 @@ class MainTab4Fragment : Fragment() {
         webSettings.javaScriptEnabled = true // 자바 스크립트 사용
         webSettings.setSupportZoom(false) //확대 축소 기능
         webSettings.cacheMode = WebSettings.LOAD_NO_CACHE //캐시모드를 사용하지 않고 네트워크를 통해서만 호출
-        webSettings.setAppCacheEnabled(false) //앱 내부 캐시 사용 여부 설정
+        //webSettings.setAppCacheEnabled(false) //앱 내부 캐시 사용 여부 설정
         webSettings.useWideViewPort = true //웹뷰에 맞게 출력하기
         webSettings.loadWithOverviewMode = true
         webSettings.builtInZoomControls = false // 안드로이드 내장 줌 컨트롤 사용 X

@@ -5,9 +5,9 @@ import android.webkit.WebView;
 
 public class loadUrlTask extends AsyncTask<String, Void, String>  {
 
-    WebView wvWebView;
-    public loadUrlTask(WebView wvWebView)
-    {
+    private final WebView wvWebView;
+
+    public loadUrlTask(WebView wvWebView) {
         this.wvWebView = wvWebView;
     }
 

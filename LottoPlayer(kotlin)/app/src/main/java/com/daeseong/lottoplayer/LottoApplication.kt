@@ -36,7 +36,7 @@ class LottoApplication : Application() {
         mInstance = this
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration?) {
+    override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
     }
 
