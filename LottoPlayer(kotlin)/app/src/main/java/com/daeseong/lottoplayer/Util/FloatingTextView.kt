@@ -3,35 +3,30 @@ package com.daeseong.lottoplayer.Util
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.daeseong.lottoplayer.R
+import kotlinx.android.synthetic.main.floating_layout.view.*
 
 class FloatingTextView(viewGroup: ViewGroup) {
 
-    private val floatingview: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.floating_layout, viewGroup, false)
-    private val cLClose: View = floatingview.findViewById<View>(R.id.cLClose)
-    private val tv1: TextView = floatingview.findViewById<TextView>(R.id.tv1)
-    private val tv2: TextView = floatingview.findViewById<TextView>(R.id.tv2)
+    private val floatingView: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.floating_layout, viewGroup, false)
 
     init {
-
-        cLClose.setOnClickListener {
-
-            floatingview.visibility = View.GONE
+        floatingView.cLClose.setOnClickListener {
+            floatingView.visibility = View.GONE
         }
     }
 
-    fun getFloatingview(): View? {
-        return floatingview
+    fun getFloatingView(): View? {
+        return floatingView
     }
 
     fun setText1(sText: String?, color: Int) {
-        tv1.text = sText
-        tv1.setTextColor(color)
+        floatingView.tv1.text = sText
+        floatingView.tv1.setTextColor(color)
     }
 
     fun setText2(sText: String?, color: Int) {
-        tv2.text = sText
-        tv2.setTextColor(color)
+        floatingView.tv2.text = sText
+        floatingView.tv2.setTextColor(color)
     }
 }

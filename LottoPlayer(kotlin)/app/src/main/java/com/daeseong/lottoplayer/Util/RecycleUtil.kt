@@ -4,49 +4,41 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ImageView
+import androidx.core.view.children
 import java.lang.ref.WeakReference
 
 object RecycleUtil {
 
     fun recursiveRecycle(root: View?) {
+        root?.apply {
+            background = null
 
-        var root: View? = root ?: return
+            if (this is ViewGroup) {
+                val group = this
+                val count = group.childCount
+                for (i in 0 until count) {
+                    recursiveRecycle(group.getChildAt(i))
+                }
 
-        root!!.background = null
-
-        if (root is ViewGroup) {
-            val group = root
-            val count = group.childCount
-            for (i in 0 until count) {
-                recursiveRecycle(group.getChildAt(i))
+                if (this !is AdapterView<*>) {
+                    group.removeAllViews()
+                }
             }
 
-            if (root !is AdapterView<*>) {
-                group.removeAllViews()
+            if (this is ImageView) {
+                setImageDrawable(null)
             }
         }
-
-        if (root is ImageView) {
-            root.setImageDrawable(null)
-        }
-
-        root = null
-
-        return
     }
 
     fun recursiveRecycle(recycleList: List<WeakReference<View?>>) {
-        for (ref in recycleList) recursiveRecycle(ref.get())
+        recycleList.forEach { ref -> recursiveRecycle(ref.get()) }
     }
 
     fun unBindDrawables(view: View) {
-        if (view.background != null) {
-            view.background.callback = null
-        }
+        view.background?.callback = null
         if (view is ViewGroup && view !is AdapterView<*>) {
-            for (i in 0 until view.childCount) {
-                unBindDrawables(view.getChildAt(i))
-            }
+            view.children.forEach { child -> unBindDrawables(child) }
             view.removeAllViews()
         }
     }

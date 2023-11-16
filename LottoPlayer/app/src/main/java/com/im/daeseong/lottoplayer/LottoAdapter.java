@@ -12,7 +12,7 @@ public class LottoAdapter extends FragmentPagerAdapter {
     private final List<Fragment> fragments = new ArrayList<>();
     private final List<String> titles = new ArrayList<>();
 
-    public LottoAdapter(FragmentManager fragmentManager){
+    public LottoAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 

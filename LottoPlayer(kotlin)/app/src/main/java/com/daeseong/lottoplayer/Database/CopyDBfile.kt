@@ -1,10 +1,10 @@
 package com.daeseong.lottoplayer.Database
 
 import android.content.Context
+import android.util.Log
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
-import java.io.OutputStream
 
 class CopyDBfile(context: Context) {
 
@@ -12,27 +12,31 @@ class CopyDBfile(context: Context) {
     private val db_name = "LottoDB.db"
 
     init {
-
-        val db_path = "/data/data/" + context.applicationContext.packageName + "/databases/"
+        val dbPath = "/data/data/${context.applicationContext.packageName}/databases/"
 
         try {
 
-            val myinput = context.assets.open(db_name)
-            val file = File(db_path + db_name)
-            if (!file.exists()) {
-                val dir = File(db_path)
-                dir.mkdirs()
-                val myoutput: OutputStream = FileOutputStream(db_path + db_name)
-                val buffer = ByteArray(1024)
-                var length: Int
-                while (myinput.read(buffer).also { length = it } > 0) {
-                    myoutput.write(buffer, 0, length)
+            context.assets.open(db_name).use { myInput ->
+
+                val file = File(dbPath, db_name)
+                if (!file.exists()) {
+                    file.parentFile?.mkdirs()
+                    file.createNewFile()
+
+                    FileOutputStream(file).use { myOutput ->
+                        val buffer = ByteArray(1024)
+                        var length: Int
+                        while (myInput.read(buffer).also { length = it } > 0) {
+                            myOutput.write(buffer, 0, length)
+                        }
+                    }
                 }
-                myoutput.flush()
-                myoutput.close()
-                myinput.close()
             }
+
+            Log.e(tag, "use 함수로 인해 자동으로 닫힘")
+
         } catch (e: IOException) {
+            e.printStackTrace()
         }
     }
 }

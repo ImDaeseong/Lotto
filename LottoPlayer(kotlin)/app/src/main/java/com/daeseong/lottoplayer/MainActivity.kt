@@ -103,11 +103,11 @@ class MainActivity : AppCompatActivity() {
         val screenLength: Int = size.y
         val rootView = findViewById<ViewGroup>(R.id.main1)
         floatingTextView = FloatingTextView(rootView)
-        floatingTextView!!.getFloatingview()!!.visibility = View.VISIBLE
-        val layoutParams = floatingTextView!!.getFloatingview()!!.layoutParams as ConstraintLayout.LayoutParams
+        floatingTextView!!.getFloatingView()!!.visibility = View.VISIBLE
+        val layoutParams = floatingTextView!!.getFloatingView()!!.layoutParams as ConstraintLayout.LayoutParams
         layoutParams.setMargins(0, screenLength - dip2px(this, 60f), 0, 0)
-        floatingTextView!!.getFloatingview()!!.layoutParams = layoutParams
-        rootView.addView(floatingTextView!!.getFloatingview())
+        floatingTextView!!.getFloatingView()!!.layoutParams = layoutParams
+        rootView.addView(floatingTextView!!.getFloatingView())
         setFloating()
     }
 

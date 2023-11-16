@@ -1,21 +1,18 @@
 package com.daeseong.lottoplayer
 
-import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.os.AsyncTask
-import android.os.Bundle
-import android.os.Handler
-import android.os.Message
+import android.os.*
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.daeseong.lottoplayer.Database.CopyDBfile
 import com.daeseong.lottoplayer.Util.RecycleUtil.recursiveRecycle
+import kotlinx.coroutines.*
 
 class SplashActivity : AppCompatActivity() {
 
-    private val TAG = SplashActivity::class.java.simpleName
+    private val tag = SplashActivity::class.java.simpleName
 
     private var handler: Handler? = null
 
@@ -31,41 +28,46 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        handler = object : Handler() {
-            override fun handleMessage(msg: Message) {
-                when (msg.what) {
-                    0 -> {
-                        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-                        finish()
-                    }
+        handler = Handler(Looper.getMainLooper()) {
+            when (it.what) {
+                0 -> {
+                    startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                    finish()
+                    true
                 }
+                else -> false
             }
         }
     }
 
     private fun InitData() {
 
-        try {
-            val bCopy = CopyDBTask().execute(this).get()
-        } catch (e: java.lang.Exception) {
-        }
-
-        handler!!.postDelayed({
+        CoroutineScope(Dispatchers.IO).launch {
             try {
-                val msg = handler!!.obtainMessage()
-                msg.what = 0
-                handler!!.sendMessage(msg)
-            } catch (e: java.lang.Exception) {
+                CopyDBfile(this@SplashActivity)
+            } catch (e: Exception) {
             }
-        }, 1000)
+
+            launch(Dispatchers.Main) {
+                delay(1000)
+                handler?.sendEmptyMessage(0)
+            }
+        }
     }
 
     //타이틀바 숨기기/가로보기 고정/풀스크린
     private fun InitTitleBar() {
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+        try {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+            supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
+        } catch (ex: Exception) {
+        }
+
+        try {
+            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        } catch (ex: Exception) {
+        }
     }
 
     override fun onBackPressed() {
@@ -81,31 +83,8 @@ class SplashActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
-        try {
-            if (handler != null) {
-                handler!!.removeCallbacksAndMessages(null)
-                handler = null
-            }
-            recursiveRecycle(window.decorView)
-            System.gc()
-        } catch (e: Exception) {
-        }
+        handler?.removeCallbacksAndMessages(null)
+        recursiveRecycle(window.decorView)
+        System.gc()
     }
-
-    inner class CopyDBTask : AsyncTask<Context?, Void?, Boolean>() {
-
-        override fun doInBackground(vararg params: Context?): Boolean? {
-
-            try {
-
-                CopyDBfile(params[0]!!)
-                return true
-
-            } catch (e: java.lang.Exception) {
-            }
-
-            return false
-        }
-    }
-
 }

@@ -23,32 +23,32 @@ class LottoRecyclerAdapter(var context: Context, private var lottoList: List<Lot
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val stvDesc = String.format("<font color=\"#ff9900\">%d</font><font color=\"#000000\"> 회 당첨결과(%s)</font>", lottoList[position].getrIndex(), lottoList[position].getDate())
+        val stvDesc = String.format("<font color=\"#ff9900\">%d</font><font color=\"#000000\"> 회 당첨결과(%s)</font>", lottoList[position].rIndex, lottoList[position].date)
         holder.tvDesc.text = Html.fromHtml(stvDesc)
 
-        val stv1 = String.format("%s", lottoList[position].getPart1())
+        val stv1 = String.format("%s", lottoList[position].part1)
         holder.tv1.setTitleText(stv1)
-        holder.tv1.setBackgroundColor(getLottoColor(lottoList[position].getPart1()))
+        holder.tv1.setBackgroundColor(getLottoColor(lottoList[position].part1))
 
-        val stv2 = String.format("%s", lottoList[position].getPart2())
+        val stv2 = String.format("%s", lottoList[position].part2)
         holder.tv2.setTitleText(stv2)
-        holder.tv2.setBackgroundColor(getLottoColor(lottoList[position].getPart2()))
+        holder.tv2.setBackgroundColor(getLottoColor(lottoList[position].part2))
 
-        val stv3 = String.format("%s", lottoList[position].getPart3())
+        val stv3 = String.format("%s", lottoList[position].part3)
         holder.tv3.setTitleText(stv3)
-        holder.tv3.setBackgroundColor(getLottoColor(lottoList[position].getPart3()))
+        holder.tv3.setBackgroundColor(getLottoColor(lottoList[position].part3))
 
-        val stv4 = String.format("%s", lottoList[position].getPart4())
+        val stv4 = String.format("%s", lottoList[position].part4)
         holder.tv4.setTitleText(stv4)
-        holder.tv4.setBackgroundColor(getLottoColor(lottoList[position].getPart4()))
+        holder.tv4.setBackgroundColor(getLottoColor(lottoList[position].part4))
 
-        val stv5 = String.format("%s", lottoList[position].getPart5())
+        val stv5 = String.format("%s", lottoList[position].part5)
         holder.tv5.setTitleText(stv5)
-        holder.tv5.setBackgroundColor(getLottoColor(lottoList[position].getPart5()))
+        holder.tv5.setBackgroundColor(getLottoColor(lottoList[position].part5))
 
-        val stv6 = String.format("%s", lottoList[position].getPart6())
+        val stv6 = String.format("%s", lottoList[position].part6)
         holder.tv6.setTitleText(stv6)
-        holder.tv6.setBackgroundColor(getLottoColor(lottoList[position].getPart6()))
+        holder.tv6.setBackgroundColor(getLottoColor(lottoList[position].part6))
     }
 
     override fun getItemCount(): Int {

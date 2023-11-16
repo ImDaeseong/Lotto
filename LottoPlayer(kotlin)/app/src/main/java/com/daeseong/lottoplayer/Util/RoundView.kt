@@ -12,8 +12,8 @@ import android.view.View
 open class RoundView : View {
 
     companion object {
-        private val DEFAULT_TITLE_COLOR: Int = android.graphics.Color.WHITE
-        private val DEFAULT_BACKGROUND_COLOR: Int = android.graphics.Color.CYAN
+        private const val DEFAULT_TITLE_COLOR: Int = android.graphics.Color.WHITE
+        private const val DEFAULT_BACKGROUND_COLOR: Int = android.graphics.Color.CYAN
         private const val DEFAULT_VIEW_SIZE = 80
         private const val DEFAULT_TITLE_SIZE = 25f
         private const val DEFAULT_TITLE = "0"
@@ -45,31 +45,36 @@ open class RoundView : View {
 
     private fun init(attrs: AttributeSet?, defStyle: Int) {
 
-        //Title TextPaint
-        mTitleTextPaint = TextPaint()
-        mTitleTextPaint!!.flags = Paint.ANTI_ALIAS_FLAG
-        mTitleTextPaint!!.typeface = mFont
-        mTitleTextPaint!!.textAlign = Paint.Align.CENTER
-        mTitleTextPaint!!.isLinearText = true
-        mTitleTextPaint!!.color = mTitleColor
-        mTitleTextPaint!!.textSize = mTitleSize
+        // Title TextPaint
+        mTitleTextPaint = TextPaint().apply {
+            flags = Paint.ANTI_ALIAS_FLAG
+            typeface = mFont
+            textAlign = Paint.Align.CENTER
+            isLinearText = true
+            color = mTitleColor
+            textSize = mTitleSize
+        }
 
-        //Background Paint
-        mBackgroundPaint = Paint()
-        mBackgroundPaint!!.flags = Paint.ANTI_ALIAS_FLAG
-        mBackgroundPaint!!.style = Paint.Style.FILL
-        mBackgroundPaint!!.color = mBackgroundColor
+        // Background Paint
+        mBackgroundPaint = Paint().apply {
+            flags = Paint.ANTI_ALIAS_FLAG
+            style = Paint.Style.FILL
+            color = mBackgroundColor
+        }
+
         mInnerRectF = RectF()
     }
 
     open fun invalidateTextPaints() {
-        mTitleTextPaint!!.typeface = mFont
-        mTitleTextPaint!!.textSize = mTitleSize
-        mTitleTextPaint!!.color = mTitleColor
+        mTitleTextPaint?.apply {
+            typeface = mFont
+            textSize = mTitleSize
+            color = mTitleColor
+        }
     }
 
     open fun invalidatePaints() {
-        mBackgroundPaint!!.color = mBackgroundColor
+        mBackgroundPaint?.color = mBackgroundColor
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -81,14 +86,16 @@ open class RoundView : View {
     }
 
     override fun onDraw(canvas: Canvas) {
-        mInnerRectF!![0f, 0f, mViewSize.toFloat()] = mViewSize.toFloat()
-        mInnerRectF!!.offset((width - mViewSize) / 2.toFloat(), (height - mViewSize) / 2.toFloat())
-        val centerX = mInnerRectF!!.centerX()
-        val centerY = mInnerRectF!!.centerY()
-        val xPos = centerX.toInt()
-        val yPos = (centerY - (mTitleTextPaint!!.descent() + mTitleTextPaint!!.ascent()) / 2).toInt()
-        canvas.drawOval(mInnerRectF!!, mBackgroundPaint!!)
-        canvas.drawText(mTitleText, xPos.toFloat(), yPos.toFloat(), mTitleTextPaint!!)
+        mInnerRectF?.apply {
+            set(0f, 0f, mViewSize.toFloat(), mViewSize.toFloat())
+            offset((width - mViewSize) / 2f, (height - mViewSize) / 2f)
+            val centerX = centerX()
+            val centerY = centerY()
+            val xPos = centerX.toInt()
+            val yPos = (centerY - (mTitleTextPaint!!.descent() + mTitleTextPaint!!.ascent()) / 2).toInt()
+            canvas.drawOval(this, mBackgroundPaint!!)
+            canvas.drawText(mTitleText, xPos.toFloat(), yPos.toFloat(), mTitleTextPaint!!)
+        }
     }
 
     open fun getTitleText(): String? {

@@ -16,22 +16,17 @@ class LottoApplication : Application() {
     private val tag = LottoApplication::class.java.simpleName
 
     companion object {
-
         private lateinit var mContext: Context
         private lateinit var mInstance: LottoApplication
+        private var toast: Toast? = null
 
         fun getInstance(): LottoApplication {
             return mInstance
         }
-
-        private var toast: Toast? = null
-
-
     }
 
     override fun onCreate() {
         super.onCreate()
-
         mContext = this
         mInstance = this
     }
@@ -40,18 +35,20 @@ class LottoApplication : Application() {
         super.onConfigurationChanged(newConfig)
     }
 
-    fun Toast(context: Context, sMsg: String?, bLengthLong: Boolean) {
+    fun showToast(sMsg: String?, bLengthLong: Boolean) {
 
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val inflater = mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view: View = inflater.inflate(R.layout.toast_layout, null)
-        val tvtoast: TextView = view.findViewById(R.id.tvtoast)
+        val tvToast: TextView = view.findViewById(R.id.tvtoast)
 
         //최대 1줄까지
-        tvtoast.maxLines = 1
-        tvtoast.setTextColor(Color.parseColor("#000000"))
-        tvtoast.text = sMsg
-        toast = Toast(context)
+        tvToast.maxLines = 1
+        tvToast.setTextColor(Color.parseColor("#000000"))
+        tvToast.text = sMsg
+
+        toast = Toast(mContext)
         toast!!.setGravity(Gravity.BOTTOM, 0, 0)//toast!!.setGravity(Gravity.CENTER, 0, 0)
+
         if (bLengthLong) {
             toast!!.duration = Toast.LENGTH_LONG
         } else {
@@ -61,9 +58,9 @@ class LottoApplication : Application() {
         toast!!.show()
     }
 
-    fun Toastcancel() {
+    fun cancelToast() {
         try {
-            toast!!.cancel()
+            toast?.cancel()
         } catch (e: Exception) {
         }
     }

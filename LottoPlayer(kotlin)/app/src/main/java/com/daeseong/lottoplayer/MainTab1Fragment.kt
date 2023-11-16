@@ -16,13 +16,12 @@ class MainTab1Fragment : Fragment() {
         private val tag = MainTab1Fragment::class.java.simpleName
     }
 
-    private var mContext: Context? = null
-    private var MainView: View? = null
-    private var recyclerView: RecyclerView? = null
-    private var lottoRecyclerAdapter: LottoRecyclerAdapter? = null
+    private lateinit var mContext: Context
+    private lateinit var MainView: View
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var lottoRecyclerAdapter: LottoRecyclerAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
         mContext = container!!.context
         return inflater.inflate(R.layout.fragment_main_tab1, container, false)
     }
@@ -31,10 +30,10 @@ class MainTab1Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         MainView = view
-        recyclerView = view.findViewById<View>(R.id.recycler_view) as RecyclerView
-        lottoRecyclerAdapter = LottoRecyclerAdapter(mContext!!, (activity as MainActivity?)!!.getLotto() as List<Lotto>)
-        recyclerView!!.layoutManager = LinearLayoutManager(mContext)
-        recyclerView!!.adapter = lottoRecyclerAdapter
+        recyclerView = view.findViewById(R.id.recycler_view)
+        lottoRecyclerAdapter = LottoRecyclerAdapter(mContext, (activity as MainActivity?)!!.getLotto() as List<Lotto>)
+        recyclerView.layoutManager = LinearLayoutManager(mContext)
+        recyclerView.adapter = lottoRecyclerAdapter
     }
 
     override fun onDestroyView() {

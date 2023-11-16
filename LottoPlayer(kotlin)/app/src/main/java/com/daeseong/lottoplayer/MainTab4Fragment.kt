@@ -13,7 +13,9 @@ import android.view.ViewGroup
 import android.webkit.*
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
-import com.daeseong.lottoplayer.Util.loadUrlTask
+import androidx.lifecycle.ViewModelProvider
+import com.daeseong.lottoplayer.Util.LoadUrlTask
+import com.daeseong.lottoplayer.Util.WebViewViewModel
 
 class MainTab4Fragment : Fragment() {
 
@@ -21,12 +23,13 @@ class MainTab4Fragment : Fragment() {
         private val tag = MainTab4Fragment::class.java.simpleName
     }
 
-    private var mContext: Context? = null
-    private var wvWebView: WebView? = null
-    private var pProgressBar: ProgressBar? = null
+    private lateinit var mContext: Context
+    private lateinit var wvWebView: WebView
+    private lateinit var pProgressBar: ProgressBar
+
+    private lateinit var viewModel: WebViewViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
         mContext = container!!.context
         return inflater.inflate(R.layout.fragment_main_tab4, container, false)
     }
@@ -34,11 +37,13 @@ class MainTab4Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        wvWebView = view.findViewById<View>(R.id.webview) as WebView
-        pProgressBar = view.findViewById<View>(R.id.progressbar) as ProgressBar
+        wvWebView = view.findViewById(R.id.webview)
+        pProgressBar = view.findViewById(R.id.progressbar)
+
+        viewModel = ViewModelProvider(this).get(WebViewViewModel::class.java)
 
         try {
-            if (LottoApplication.getInstance().isNetworkAvailable(mContext!!)) {
+            if (LottoApplication.getInstance().isNetworkAvailable(mContext)) {
                 initWebview("https://m.dhlottery.co.kr/common.do?method=main")
             } else {
                 initWebview("about:blank")
@@ -58,13 +63,12 @@ class MainTab4Fragment : Fragment() {
 
     fun clearWebViewResource() {
         try {
-            if (wvWebView != null) {
-                wvWebView!!.removeAllViews()
-                (wvWebView!!.parent as ViewGroup).removeView(wvWebView)
-                wvWebView!!.tag = null
-                wvWebView!!.clearHistory()
-                wvWebView!!.destroy()
-                wvWebView = null
+            if (::wvWebView.isInitialized) {
+                wvWebView.removeAllViews()
+                (wvWebView.parent as ViewGroup).removeView(wvWebView)
+                wvWebView.tag = null
+                wvWebView.clearHistory()
+                wvWebView.destroy()
             }
         } catch (e: Exception) {
         }
@@ -73,17 +77,16 @@ class MainTab4Fragment : Fragment() {
     private fun initWebview(url: String) {
 
         // 웹뷰 세팅
-        val webSettings = wvWebView!!.settings
+        val webSettings = wvWebView.settings
         webSettings.javaScriptEnabled = true // 자바 스크립트 사용
         webSettings.setSupportZoom(false) //확대 축소 기능
         webSettings.cacheMode = WebSettings.LOAD_NO_CACHE //캐시모드를 사용하지 않고 네트워크를 통해서만 호출
-        //webSettings.setAppCacheEnabled(false) //앱 내부 캐시 사용 여부 설정
         webSettings.useWideViewPort = true //웹뷰에 맞게 출력하기
         webSettings.loadWithOverviewMode = true
         webSettings.builtInZoomControls = false // 안드로이드 내장 줌 컨트롤 사용 X
 
         //WebViewClient
-        wvWebView!!.webViewClient = object : WebViewClient() {
+        wvWebView.webViewClient = object : WebViewClient() {
 
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
                 return true
@@ -92,8 +95,8 @@ class MainTab4Fragment : Fragment() {
             //timeout error check
             private val timeoutRunnable = Runnable {
                 try {
-                    wvWebView!!.stopLoading()
-                    pProgressBar!!.visibility = View.GONE
+                    wvWebView.stopLoading()
+                    pProgressBar.visibility = View.GONE
                 } catch (e: Exception) {
                 }
             }
@@ -129,7 +132,7 @@ class MainTab4Fragment : Fragment() {
             }
         }
 
-        wvWebView!!.webChromeClient = object : WebChromeClient() {
+        wvWebView.webChromeClient = object : WebChromeClient() {
 
             override fun onJsAlert(view: WebView, url: String, message: String, result: JsResult): Boolean {
                 return true
@@ -145,12 +148,12 @@ class MainTab4Fragment : Fragment() {
 
             override fun onProgressChanged(view: WebView, newProgress: Int) {
                 if (newProgress == 100) {
-                    pProgressBar!!.visibility = View.GONE
+                    pProgressBar.visibility = View.GONE
                 } else {
-                    if (pProgressBar!!.visibility == View.GONE) {
-                        pProgressBar!!.visibility = View.VISIBLE
+                    if (pProgressBar.visibility == View.GONE) {
+                        pProgressBar.visibility = View.VISIBLE
                     }
-                    pProgressBar!!.progress = newProgress
+                    pProgressBar.progress = newProgress
                 }
                 super.onProgressChanged(view, newProgress)
             }
@@ -160,16 +163,23 @@ class MainTab4Fragment : Fragment() {
             }
         }
 
-        wvWebView!!.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+        wvWebView.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN) {
-                if (keyCode == KeyEvent.KEYCODE_BACK && wvWebView!!.canGoBack()) {
-                    wvWebView!!.goBack()
+                if (keyCode == KeyEvent.KEYCODE_BACK && wvWebView.canGoBack()) {
+                    wvWebView.goBack()
                     return@OnKeyListener true
                 }
             }
             false
         })
 
-        loadUrlTask(wvWebView!!).execute(url)
+        //LoadUrlTask(wvWebView!!).execute(url)
+
+        viewModel.urlToLoad.observe(viewLifecycleOwner) { url ->
+            url?.let {
+                wvWebView!!.loadUrl(it)
+            }
+        }
+        viewModel.loadUrl(url)
     }
 }

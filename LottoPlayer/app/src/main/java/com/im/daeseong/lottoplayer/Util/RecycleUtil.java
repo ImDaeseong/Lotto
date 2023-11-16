@@ -57,5 +57,4 @@ public class RecycleUtil {
             ((ViewGroup) view).removeAllViews();
         }
     }
-
 }

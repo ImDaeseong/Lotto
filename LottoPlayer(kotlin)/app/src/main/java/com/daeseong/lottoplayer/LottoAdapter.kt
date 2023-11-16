@@ -6,24 +6,17 @@ import androidx.fragment.app.FragmentPagerAdapter
 
 class LottoAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    private val fragments: MutableList<Fragment> = ArrayList()
-    private val titles: MutableList<String> = ArrayList()
+    private val fragments = mutableListOf<Fragment>()
+    private val titles = mutableListOf<String>()
 
     fun addFragment(fragment: Fragment, title: String) {
-
         fragments.add(fragment)
         titles.add(title)
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
-        return titles[position]
-    }
+    override fun getPageTitle(position: Int): CharSequence? = titles[position]
 
-    override fun getItem(position: Int): Fragment {
-        return fragments[position]
-    }
+    override fun getItem(position: Int): Fragment = fragments[position]
 
-    override fun getCount(): Int {
-        return fragments.size
-    }
+    override fun getCount(): Int = fragments.size
 }
