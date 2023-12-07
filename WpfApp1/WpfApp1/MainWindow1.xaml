@@ -1,0 +1,31 @@
+﻿<Window x:Class="WpfApp1.MainWindow1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow1" Height="450" Width="600">
+
+    <Window.Resources>
+        <Style x:Key="CenteredHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="CenteredListViewItemStyle" TargetType="{x:Type ListViewItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <ListView Name="lstView" ItemsSource="{Binding ob_item1}" ItemContainerStyle="{StaticResource CenteredListViewItemStyle}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="회차" Width="100" DisplayMemberBinding="{Binding rIndex}" HeaderContainerStyle="{StaticResource CenteredHeaderStyle}" />
+                    <GridViewColumn Header="추첨일" Width="150" DisplayMemberBinding="{Binding Date}" HeaderContainerStyle="{StaticResource CenteredHeaderStyle}" />
+                    <GridViewColumn Header="보너스" Width="300" DisplayMemberBinding="{Binding Bonus}" HeaderContainerStyle="{StaticResource CenteredHeaderStyle}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

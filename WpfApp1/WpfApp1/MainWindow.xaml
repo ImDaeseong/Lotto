@@ -1,0 +1,80 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="750" Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <Style x:Key="CenteredHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="CenteredListViewItemStyle" TargetType="{x:Type ListViewItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid>
+        <ListView Name="lstView" ItemContainerStyle="{StaticResource CenteredListViewItemStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="707" Height="392" Margin="13,0,13,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Select All" Width="50" HeaderContainerStyle="{StaticResource CenteredHeaderStyle}">
+                        <GridViewColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox Click="CheckBox_All_Click" />
+                            </DataTemplate>
+                        </GridViewColumn.HeaderTemplate>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" Click="CheckBox_Row_Click" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="회차" Width="70" DisplayMemberBinding="{Binding rIndex}" HeaderContainerStyle="{StaticResource CenteredHeaderStyle}"/>
+                    <GridViewColumn Header="추첨일" Width="100" DisplayMemberBinding="{Binding Date}" HeaderContainerStyle="{StaticResource CenteredHeaderStyle}"/>
+                    <GridViewColumn Header="1 당첨번호" Width="70" DisplayMemberBinding="{Binding Part1}" HeaderContainerStyle="{StaticResource CenteredHeaderStyle}"/>
+                    <GridViewColumn Header="2 당첨번호" Width="70" DisplayMemberBinding="{Binding Part2}" HeaderContainerStyle="{StaticResource CenteredHeaderStyle}"/>
+                    <GridViewColumn Header="3 당첨번호" Width="70" DisplayMemberBinding="{Binding Part3}" HeaderContainerStyle="{StaticResource CenteredHeaderStyle}"/>
+                    <GridViewColumn Header="4 당첨번호" Width="70" DisplayMemberBinding="{Binding Part4}" HeaderContainerStyle="{StaticResource CenteredHeaderStyle}"/>
+                    <GridViewColumn Header="5 당첨번호" Width="70" DisplayMemberBinding="{Binding Part5}" HeaderContainerStyle="{StaticResource CenteredHeaderStyle}"/>
+                    <GridViewColumn Header="6 당첨번호" Width="70" DisplayMemberBinding="{Binding Part6}" HeaderContainerStyle="{StaticResource CenteredHeaderStyle}"/>
+                    <GridViewColumn Header="보너스" Width="70" DisplayMemberBinding="{Binding Bonus}" HeaderContainerStyle="{StaticResource CenteredHeaderStyle}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Label Content="회차" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="10,416,0,0"/>
+        <TextBox Name="txtrNum" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,420,0,0" Width="100"/>
+
+        <Label Content="당첨번호" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="10,446,0,0"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="68,451,0,0">
+            <TextBox Name="txtPart1" Width="82"  Margin="10,0,0,0"/>
+            <TextBox Name="txtPart2" Width="82"  Margin="10,0,0,0"/>
+            <TextBox Name="txtPart3" Width="82"  Margin="10,0,0,0"/>
+            <TextBox Name="txtPart4" Width="82"  Margin="10,0,0,0"/>
+            <TextBox Name="txtPart5" Width="82"  Margin="10,0,0,0"/>
+            <TextBox Name="txtPart6" Width="82"  Margin="10,0,0,0"/>
+        </StackPanel>
+
+        <Button Content="추가" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,494,0,0" Width="75" Click="btnAdd_Click"/>
+        <Button Content="당첨번호 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="235,494,0,0" Width="75" Click="button1_Click"/>
+        <Button Content="당첨번호 2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="316,494,0,0" Width="75" Click="button2_Click"/>
+        <Button Content="당첨번호 3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="397,494,0,0" Width="75" Click="button3_Click"/>
+        <Button Content="당첨번호 4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="478,494,0,0" Width="75" Click="button4_Click"/>
+        <Button Content="당첨번호 5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="559,494,0,0" Width="75" Click="button5_Click"/>
+        <Button Content="당첨번호 6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="640,494,0,0" Width="75" Click="button6_Click"/>
+        <Button Content="당첨번호 Top 6개" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="235,523,0,0" Width="100" Click="button7_Click"/>
+        <Button Content="당첨번호 전체 60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="341,523,0,0" Width="113" Click="button8_Click"/>
+
+        <Label Content="추첨일" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="166,416,0,0"/>
+        <TextBox Name="txtDate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="213,420,0,0" Width="82"/>
+
+        <Label Content="보너스" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="314,416,0,0"/>
+        <TextBox Name="txtBonus" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="361,420,0,0" Width="82"/>
+    </Grid>
+
+</Window>
