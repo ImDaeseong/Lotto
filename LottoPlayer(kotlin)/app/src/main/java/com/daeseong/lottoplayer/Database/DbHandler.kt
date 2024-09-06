@@ -6,6 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteException
 import java.util.*
 import kotlin.collections.ArrayList
+
 class DbHandler private constructor(context: Context) {
 
     private val tag = DbHandler::class.java.simpleName

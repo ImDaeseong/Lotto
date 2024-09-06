@@ -14,7 +14,6 @@ import android.webkit.*
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.daeseong.lottoplayer.Util.LoadUrlTask
 import com.daeseong.lottoplayer.Util.WebViewViewModel
 
 class MainTab4Fragment : Fragment() {
